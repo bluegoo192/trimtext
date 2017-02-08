@@ -2,6 +2,7 @@ package com.cssquids.trimtext;/**
  * Created by Arthur on 2/8/2017.
  */
 
+import com.cssquids.trimtext.Configurables.LabelsContainer;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -23,8 +24,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 public class Main extends Application {
-    private static final String BROWSER = "Browser";
-    private static final String EDITOR = "new editor";
+
     private static int browserCnt = 1;
 
     private Stage primaryStage;
@@ -60,7 +60,7 @@ public class Main extends Application {
         MenuItem menuFileNew = new MenuItem("New");
         menuFileNew.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
-                createNew(EDITOR);
+                createNew(LabelsContainer.getInstance().getEditorLabel());
             }
         });
         MenuItem menuFileOpen = new MenuItem("Open");
@@ -94,7 +94,7 @@ public class Main extends Application {
         MenuItem menuViewURL = new MenuItem("Web Page");
         menuViewURL.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
-                createNew(BROWSER);
+                createNew(LabelsContainer.getInstance().getBrowserLabel());
             }
         });
         menuView.getItems().addAll(menuViewURL);
@@ -152,7 +152,7 @@ public class Main extends Application {
 //            });
 //
         // Make sure one new editor is open by default
-        createNew(EDITOR);
+        createNew(LabelsContainer.getInstance().getEditorLabel());
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Simple Editor / Browser");
@@ -164,11 +164,11 @@ public class Main extends Application {
         Content content = null;
 
         switch ( type ) {
-            case EDITOR:
+            case "new editor"://see how cancerous this is? we gotta fix -- see Issue 1
                 content = new Editor();
                 editors.add((Editor)content);
                 break;
-            case BROWSER:
+            case "Browser":
                 content = new WebBrowser();
                 type += (browserCnt++);
                 break;
