@@ -6,7 +6,7 @@ package com.cssquids.trimtext.Configurables;
 
 //Like many classes in this package, LayoutSettings is a singleton containing settings for layout, like spacing & stuff
 //For now, these are hardcoded in.  In the future, we'll want these variables to be loaded from a file
-public class LayoutSettings {
+public class LayoutSettings extends FileSettings implements AutoUpdate {
 
     private double VBoxSpacing = 0;
 
@@ -17,6 +17,11 @@ public class LayoutSettings {
     }
 
     private LayoutSettings() {
+    }
+
+    public boolean reInit() {
+        return false; //stub for now
+        //TODO: make this work
     }
 
     public double getVerticalSpacing() { return VBoxSpacing; }

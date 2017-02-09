@@ -8,7 +8,7 @@ package com.cssquids.trimtext.Configurables;
 // In the future, this class should read this data from a file, to allow users to change this data as they please
 //TODO: dynamically load data from file, rather than keeping it hard-coded
 
-public class LabelsContainer {
+public class LabelsContainer extends FileSettings implements AutoUpdate {
 
     private String BROWSER = "Browser";
     private String EDITOR = "new editor";
