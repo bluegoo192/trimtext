@@ -3,6 +3,7 @@ package com.cssquids.trimtext;/**
  */
 
 import com.cssquids.trimtext.Configurables.LabelsContainer;
+import com.cssquids.trimtext.Configurables.LayoutSettings;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -101,11 +102,13 @@ public class Main extends Application {
         menuBar.getMenus().addAll(fileMenu, viewMenu);
 
         // layout the scene
-        VBox layout = VBoxBuilder.create().spacing(10).children(menuBar, tabPane).build();
-        layout.setFillWidth(true);
+        //VBox layout = VBoxBuilder.create().spacing(10).children(menuBar, tabPane).build();
+        VBox verticalLayout = new VBox(LayoutSettings.getInstance().getVerticalSpacing());
+        verticalLayout.getChildren().addAll(menuBar, tabPane);
+        verticalLayout.setFillWidth(true);
 
         // display the scene
-        final Scene scene = new Scene(layout, 800, 600);
+        final Scene scene = new Scene(verticalLayout, 800, 600);
         // Bind the tab pane width/height to the scene
         tabPane.prefWidthProperty().bind(scene.widthProperty());
         tabPane.prefHeightProperty().bind(scene.heightProperty());
