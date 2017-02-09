@@ -27,19 +27,19 @@ public class Main extends Application {
 
     private static int browserCnt = 1;
 
-    private Stage primaryStage;
+    private Stage mainStage;
     private TabPane tabPane;
     private Vector<Editor> editors = new Vector();
     private Editor currentEditor = null;
     static boolean ignoreNextPress = false;
 
     private Stage getStage() {
-        return primaryStage;
+        return mainStage;
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
+    public void start(Stage stage) {
+        this.mainStage = stage;
 
         // Add an empty editor to the tab pane
         tabPane = new TabPane();
@@ -52,43 +52,43 @@ public class Main extends Application {
             }
         });
 
-        // Create main app menu
+        // main menu
         MenuBar menuBar = new MenuBar();
 
-        // File menu and subitems
-        Menu menuFile = new Menu("File");
-        MenuItem menuFileNew = new MenuItem("New");
-        menuFileNew.setOnAction(new EventHandler<ActionEvent>() {
+        // File menu
+        Menu fileMenu = new Menu("File");
+        MenuItem fileMenu_NEW = new MenuItem("New");
+        fileMenu_NEW.setOnAction(new EventHandler<ActionEvent>() { //create new Editor instance
             public void handle(ActionEvent t) {
                 createNew(LabelsContainer.getInstance().getEditorLabel());
             }
         });
-        MenuItem menuFileOpen = new MenuItem("Open");
-        menuFileOpen.setOnAction(new EventHandler<ActionEvent>() {
+        MenuItem fileMenu_OPEN = new MenuItem("Open");
+        fileMenu_OPEN.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
                 chooseAndLoadFile();
             }
         });
-        MenuItem menuFileSave = new MenuItem("Save");
-        menuFileSave.setOnAction(new EventHandler<ActionEvent>() {
+        MenuItem fileMenu_SAVE = new MenuItem("Save");
+        fileMenu_SAVE.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
                 saveFileRev();
             }
         });
-        MenuItem menuFileExit = new MenuItem("Exit");
-        menuFileExit.setOnAction(new EventHandler<ActionEvent>() {
+        MenuItem fileMenu_EXIT = new MenuItem("Exit");
+        fileMenu_EXIT.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
                 stop();
                 getStage().close();
             }
         });
 
-        menuFile.getItems().addAll(
-                menuFileNew,
-                menuFileOpen,
-                menuFileSave,
+        fileMenu.getItems().addAll(
+                fileMenu_NEW,
+                fileMenu_OPEN,
+                fileMenu_SAVE,
                 new SeparatorMenuItem(),
-                menuFileExit);
+                fileMenu_EXIT);
 
         Menu menuView = new Menu("View");
         MenuItem menuViewURL = new MenuItem("Web Page");
@@ -98,7 +98,7 @@ public class Main extends Application {
             }
         });
         menuView.getItems().addAll(menuViewURL);
-        menuBar.getMenus().addAll(menuFile, menuView);
+        menuBar.getMenus().addAll(fileMenu, menuView);
 
         // layout the scene
         VBox layout = VBoxBuilder.create().spacing(10).children(menuBar, tabPane).build();
@@ -154,9 +154,9 @@ public class Main extends Application {
         // Make sure one new editor is open by default
         createNew(LabelsContainer.getInstance().getEditorLabel());
 
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Simple Editor / Browser");
-        primaryStage.show();
+        stage.setScene(scene);
+        stage.setTitle("Simple Editor / Browser");
+        stage.show();
     }
 
     private void createNew(String type) {
