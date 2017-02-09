@@ -4,6 +4,8 @@ package com.cssquids.trimtext;/**
 
 import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Configurables.LayoutSettings;
+import com.cssquids.trimtext.UI.*;
+import com.cssquids.trimtext.UI.MenuBuilder;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -34,7 +36,7 @@ public class Main extends Application {
     private Editor currentEditor = null;
     static boolean ignoreNextPress = false;
 
-    private Stage getStage() {
+    public Stage getStage() {
         return mainStage;
     }
 
@@ -53,58 +55,12 @@ public class Main extends Application {
             }
         });
 
-        // main menu
-        MenuBar menuBar = new MenuBar();
+        com.cssquids.trimtext.UI.MenuBuilder menuBuilder = new MenuBuilder(this);
 
-        // File menu
-        Menu fileMenu = new Menu("File");
-        MenuItem fileMenu_NEW = new MenuItem("New");
-        fileMenu_NEW.setOnAction(new EventHandler<ActionEvent>() { //create new Editor instance
-            public void handle(ActionEvent t) {
-                createNew(LabelsContainer.getInstance().getEditorLabel());
-            }
-        });
-        MenuItem fileMenu_OPEN = new MenuItem("Open");
-        fileMenu_OPEN.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent t) {
-                chooseAndLoadFile();
-            }
-        });
-        MenuItem fileMenu_SAVE = new MenuItem("Save");
-        fileMenu_SAVE.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent t) {
-                saveFileRev();
-            }
-        });
-        MenuItem fileMenu_EXIT = new MenuItem("Exit");
-        fileMenu_EXIT.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent t) {
-                stop();
-                getStage().close();
-            }
-        });
-
-        fileMenu.getItems().addAll(
-                fileMenu_NEW,
-                fileMenu_OPEN,
-                fileMenu_SAVE,
-                new SeparatorMenuItem(),
-                fileMenu_EXIT);
-
-        Menu viewMenu = new Menu("View");
-        MenuItem viewMenu_WEB = new MenuItem("Web Page");
-        viewMenu_WEB.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent t) {
-                createNew(LabelsContainer.getInstance().getBrowserLabel());
-            }
-        });
-        viewMenu.getItems().addAll(viewMenu_WEB);
-        menuBar.getMenus().addAll(fileMenu, viewMenu);
-
-        // layout the scene
-        //VBox layout = VBoxBuilder.create().spacing(10).children(menuBar, tabPane).build();
+        // set up layout
+        //TODO: add support for multiple layout types
         VBox verticalLayout = new VBox(LayoutSettings.getInstance().getVerticalSpacing());
-        verticalLayout.getChildren().addAll(menuBar, tabPane);
+        verticalLayout.getChildren().addAll(menuBuilder.make(), tabPane);
         verticalLayout.setFillWidth(true);
 
         // display the scene
@@ -119,7 +75,7 @@ public class Main extends Application {
             public void handle(KeyEvent ke) {
                 String text = ke.getText();
                 KeyCode code = ke.getCode();
-                System.out.println("onKeyPressed: code="+code+", text="+text);
+                //System.out.println("onKeyPressed: code="+code+", text="+text);
                 handleKeyPress(ke);
             }
         });
@@ -162,7 +118,7 @@ public class Main extends Application {
         stage.show();
     }
 
-    private void createNew(String type) {
+    public void createNew(String type) {
         Tab tab = new Tab();
         Content content = null;
 
@@ -214,7 +170,7 @@ public class Main extends Application {
         return null;
     }
 
-    private void chooseAndLoadFile() {
+    public void chooseAndLoadFile() {
         FileChooser fc = new FileChooser();
         File fileToOpen = fc.showOpenDialog(null);
         if ( fileToOpen != null ) {
@@ -249,7 +205,7 @@ public class Main extends Application {
         }
     }
 
-    private void saveFileRev() {
+    public void saveFileRev() {
         System.out.println("saving file");
         boolean success = false;
         Editor editor = null;
