@@ -90,15 +90,15 @@ public class Main extends Application {
                 new SeparatorMenuItem(),
                 fileMenu_EXIT);
 
-        Menu menuView = new Menu("View");
-        MenuItem menuViewURL = new MenuItem("Web Page");
-        menuViewURL.setOnAction(new EventHandler<ActionEvent>() {
+        Menu viewMenu = new Menu("View");
+        MenuItem viewMenu_WEB = new MenuItem("Web Page");
+        viewMenu_WEB.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
                 createNew(LabelsContainer.getInstance().getBrowserLabel());
             }
         });
-        menuView.getItems().addAll(menuViewURL);
-        menuBar.getMenus().addAll(fileMenu, menuView);
+        viewMenu.getItems().addAll(viewMenu_WEB);
+        menuBar.getMenus().addAll(fileMenu, viewMenu);
 
         // layout the scene
         VBox layout = VBoxBuilder.create().spacing(10).children(menuBar, tabPane).build();
