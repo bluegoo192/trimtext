@@ -44,6 +44,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         this.mainStage = stage;
+        CurrentState.x.setApp(this);
 
         // Add an empty editor to the tab pane
         tabPane = new TabPane();
@@ -67,40 +68,7 @@ public class Main extends Application {
         tabPane.prefWidthProperty().bind(scene.widthProperty());
         tabPane.prefHeightProperty().bind(scene.heightProperty());
 
-        // Certain keys only come through on key release events
-        // such as backspace, enter, and delete
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            public void handle(KeyEvent ke) {
-                String text = ke.getText();
-                KeyCode code = ke.getCode();
-                //System.out.println("onKeyPressed: code="+code+", text="+text);
-                handleKeyPress(ke);
-            }
-        });
-
-        scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            public void handle(KeyEvent ke) {
-                String text = ke.getText();
-                KeyCode code = ke.getCode();
-                System.out.println("onKeyReleased: code="+code+", text="+text);
-                if ( code == KeyCode.BACK_SPACE ||
-                        code == KeyCode.ENTER ||
-                        code == KeyCode.DELETE ) {
-                    indicateFileModified();
-                }
-
-                // After the "s" is pressed to invoke a save action, make
-                // sure the subsequent release doesn't mark the file
-                // to be saved once again
-                if ( ! (ke.isControlDown() || ke.isMetaDown()) ) {
-                    if ( text.equals("s") && ignoreNextPress ) {
-                        ignoreNextPress = false;
-                        return;
-                    }
-                    handleKeyPress(ke);
-                }
-            }
-        });
+        scene.setUpKeyBindings();
 
 //        scene.setOnKeyTyped(new EventHandler<KeyEvent>() {
 //                public void handle(KeyEvent ke) {
@@ -138,7 +106,7 @@ public class Main extends Application {
         selectionModel.select(tab);
     }
 
-    private void indicateFileModified() {
+    public void indicateFileModified() {
         if ( currentEditor != null && currentEditor.modified ) {
             return;
         }
@@ -265,31 +233,10 @@ public class Main extends Application {
         }
     }
 
-    private void handleKeyPress(KeyEvent ke) {
-        boolean modifier = false;
-        String text = ke.getText();
-        KeyCode code = ke.getCode();
-        if ( ke.isControlDown() || ke.isMetaDown() ) {
-            modifier = true;
-        }
-
-        if ( modifier && text.equalsIgnoreCase("s") ) {
-            saveFileRev();
-            ignoreNextPress = true;
-        }
-        else if ( ! ignoreNextPress ) {
-            if ( code == KeyCode.BACK_SPACE ||
-                    code == KeyCode.ENTER ||
-                    code == KeyCode.DELETE ) {
-                indicateFileModified();
-            }
-            else if ( text != null && text.length() > 0 ) {
-                if ( ! modifier ) {
-                    indicateFileModified();
-                }
-            }
-        }
+    public void setIgnoreNextPress(boolean b) {
+        ignoreNextPress = b;
     }
+    public boolean getIgnoreNextPress() { return ignoreNextPress; }
 
     public void stop() {
         // Go through all open files and save, then exit

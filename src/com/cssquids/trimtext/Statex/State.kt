@@ -1,5 +1,7 @@
 package com.cssquids.trimtext.Statex
 
+import com.cssquids.trimtext.Main
+import javafx.application.Application
 import javafx.scene.Parent
 import javafx.scene.layout.VBox
 
@@ -19,4 +21,6 @@ class State {
     var verticalLayout = VBox(settings.getVSpacing())
 
     var sceneLayout: Parent = verticalLayout //in the future, we could change sceneLayout to something else
+    var app: Main? = null //cheap trick to expose app globally.  temporary fix
+    //TODO: remove this once Main functionality has been refactored to other classes
 }

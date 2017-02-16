@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d29c068-7373-43e0-9f62-fa3c164c36b7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/CurrentState.kt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
     </list>
     <ignored path="TrimText.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36391437">
-              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.62691134">
+              <caret line="240" column="11" selection-start-line="240" selection-start-column="11" selection-end-line="240" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#createNew#0;class#Main#0" expanded="false" />
@@ -39,7 +40,8 @@
                 <element signature="method#getEditorForTextArea#0;class#Main#0" expanded="false" />
                 <element signature="method#chooseAndLoadFile#0;class#Main#0" expanded="false" />
                 <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
-                <element signature="method#handleKeyPress#0;class#Main#0" expanded="false" />
+                <element signature="e#8298#8299#0" expanded="true" />
+                <element signature="e#8333#8334#0" expanded="true" />
                 <element signature="method#stop#0;class#Main#0" expanded="false" />
               </folding>
             </state>
@@ -50,9 +52,9 @@
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+              <caret line="24" column="84" selection-start-line="24" selection-start-column="84" selection-end-line="24" selection-end-column="84" />
               <folding>
-                <element signature="e#38#96#0" expanded="true" />
+                <element signature="e#38#168#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,24 +70,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileSettings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Configurables/FileSettings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MainScene.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -164,17 +154,18 @@
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Configurables/LayoutSettings.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/State.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/State/State.kt" />
-        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/SceneSettings.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/CurrentState.kt" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="354" />
-    <option name="y" value="54" />
+    <option name="x" value="107" />
+    <option name="y" value="40" />
     <option name="width" value="1787" />
     <option name="height" value="966" />
   </component>
@@ -258,51 +249,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TrimText" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TrimText" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trimtext" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Statex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TrimText" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TrimText" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trimtext" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Configurables" />
+              <option name="myItemId" value="Backend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -679,11 +626,17 @@
       <option name="project" value="LOCAL" />
       <updated>1487273342610</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Finished basic state stuff">
+      <created>1487274445204</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1487274445204</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="354" y="54" width="1787" height="966" extended-state="0" />
+    <frame x="107" y="40" width="1787" height="966" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -693,10 +646,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20327103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20327103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19536985" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19536985" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -731,7 +684,8 @@
     <MESSAGE value="started creating Scene subclass" />
     <MESSAGE value="added stub data class" />
     <MESSAGE value="Started adding state stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started adding state stuff" />
+    <MESSAGE value="Finished basic state stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished basic state stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -753,7 +707,8 @@
             <element signature="method#getEditorForTextArea#0;class#Main#0" expanded="false" />
             <element signature="method#chooseAndLoadFile#0;class#Main#0" expanded="false" />
             <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
-            <element signature="method#handleKeyPress#0;class#Main#0" expanded="false" />
+            <element signature="e#8298#8299#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
             <element signature="method#stop#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -825,7 +780,8 @@
             <element signature="method#getEditorForTextArea#0;class#Main#0" expanded="false" />
             <element signature="method#chooseAndLoadFile#0;class#Main#0" expanded="false" />
             <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
-            <element signature="method#handleKeyPress#0;class#Main#0" expanded="false" />
+            <element signature="e#8298#8299#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
             <element signature="method#stop#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -889,7 +845,8 @@
             <element signature="method#getEditorForTextArea#0;class#Main#0" expanded="false" />
             <element signature="method#chooseAndLoadFile#0;class#Main#0" expanded="false" />
             <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
-            <element signature="method#handleKeyPress#0;class#Main#0" expanded="false" />
+            <element signature="e#8298#8299#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
             <element signature="method#stop#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -935,7 +892,8 @@
             <element signature="method#getEditorForTextArea#0;class#Main#0" expanded="false" />
             <element signature="method#chooseAndLoadFile#0;class#Main#0" expanded="false" />
             <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
-            <element signature="method#handleKeyPress#0;class#Main#0" expanded="false" />
+            <element signature="e#8298#8299#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
             <element signature="method#stop#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -1009,16 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Configurables/FileSettings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1063,20 +1011,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20795107">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <caret line="24" column="84" selection-start-line="24" selection-start-column="84" selection-end-line="24" selection-end-column="84" />
           <folding>
-            <element signature="e#38#96#0" expanded="true" />
+            <element signature="e#38#168#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36391437">
-          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.62691134">
+          <caret line="240" column="11" selection-start-line="240" selection-start-column="11" selection-end-line="240" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#createNew#0;class#Main#0" expanded="false" />
@@ -1084,7 +1048,8 @@
             <element signature="method#getEditorForTextArea#0;class#Main#0" expanded="false" />
             <element signature="method#chooseAndLoadFile#0;class#Main#0" expanded="false" />
             <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
-            <element signature="method#handleKeyPress#0;class#Main#0" expanded="false" />
+            <element signature="e#8298#8299#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
             <element signature="method#stop#0;class#Main#0" expanded="false" />
           </folding>
         </state>
