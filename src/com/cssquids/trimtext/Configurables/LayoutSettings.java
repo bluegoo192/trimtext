@@ -14,14 +14,14 @@ public class LayoutSettings extends FileSettings implements AutoUpdate {
     private double VBoxSpacing = 0;
     private int initialSceneWidth = 800;
     private int initialSceneHeight = 600;
-    com.cssquids.trimtext.UI.MenuBuilder menuBuilder = new MenuBuilder(this);
+    //com.cssquids.trimtext.UI.MenuBuilder menuBuilder = new MenuBuilder(this);
 
     //move this all into method
     // set up layout
     //TODO: add support for multiple layout types
-    VBox verticalLayout = new VBox(LayoutSettings.getInstance().getVerticalSpacing());
-    verticalLayout.getChildren().addAll(menuBuilder.make(), tabPane);
-    verticalLayout.setFillWidth(true);
+    //VBox verticalLayout = new VBox(LayoutSettings.getInstance().getVerticalSpacing());
+    //verticalLayout.getChildren().addAll(menuBuilder.make(), tabPane);
+    //verticalLayout.setFillWidth(true);
 
     private static LayoutSettings ourInstance = new LayoutSettings();
 
