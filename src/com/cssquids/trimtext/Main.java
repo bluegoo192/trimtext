@@ -4,6 +4,7 @@ package com.cssquids.trimtext;/**
 
 import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Configurables.LayoutSettings;
+import com.cssquids.trimtext.Statex.CurrentState;
 import com.cssquids.trimtext.UI.*;
 import com.cssquids.trimtext.UI.MenuBuilder;
 import javafx.application.Application;
@@ -57,14 +58,11 @@ public class Main extends Application {
 
         com.cssquids.trimtext.UI.MenuBuilder menuBuilder = new MenuBuilder(this);
 
-        // set up layout
-        //TODO: add support for multiple layout types
-        VBox verticalLayout = new VBox(LayoutSettings.getInstance().getVerticalSpacing());
-        verticalLayout.getChildren().addAll(menuBuilder.make(), tabPane);
-        verticalLayout.setFillWidth(true);
+        CurrentState.x.getVerticalLayout().getChildren().addAll(menuBuilder.make(), tabPane);
+        CurrentState.x.getVerticalLayout().setFillWidth(true);
 
         // display the scene
-        final Scene scene = new Scene(verticalLayout, 800, 600);
+        final MainScene scene = new MainScene(CurrentState.x.getSceneLayout());
         // Bind the tab pane width/height to the scene
         tabPane.prefWidthProperty().bind(scene.widthProperty());
         tabPane.prefHeightProperty().bind(scene.heightProperty());
