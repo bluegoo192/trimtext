@@ -1,5 +1,6 @@
-package com.cssquids.trimtext;
+package com.cssquids.trimtext.UI;
 
+import com.cssquids.trimtext.UI.Content;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;

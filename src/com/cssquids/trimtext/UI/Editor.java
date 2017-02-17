@@ -1,5 +1,6 @@
-package com.cssquids.trimtext;
+package com.cssquids.trimtext.UI;
 
+import com.cssquids.trimtext.UI.Content;
 import javafx.scene.control.TextArea;
 
 /**

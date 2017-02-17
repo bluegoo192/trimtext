@@ -1,4 +1,4 @@
-package com.cssquids.trimtext;
+package com.cssquids.trimtext.UI;
 
 import javafx.scene.Node;
 

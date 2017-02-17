@@ -3,22 +3,14 @@ package com.cssquids.trimtext;/**
  */
 
 import com.cssquids.trimtext.Configurables.LabelsContainer;
-import com.cssquids.trimtext.Configurables.LayoutSettings;
 import com.cssquids.trimtext.Statex.CurrentState;
 import com.cssquids.trimtext.UI.*;
 import com.cssquids.trimtext.UI.MenuBuilder;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.VBoxBuilder;
 import javafx.stage.FileChooser;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
