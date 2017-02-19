@@ -1,5 +1,9 @@
 package com.cssquids.trimtext.Backend
 
+import com.cssquids.trimtext.Statex.CurrentState
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+
 /**
  * Created by Arthur on 2/16/2017.
  *
@@ -10,5 +14,11 @@ package com.cssquids.trimtext.Backend
  *
  */
 object Controller {
+
+    var executor: ExecutorService = Executors.newFixedThreadPool(CurrentState.x.threadPoolSize);
+
+    fun run(f:() -> Unit) {
+        executor.submit(f);
+    }
 
 }

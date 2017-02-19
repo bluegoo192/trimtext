@@ -1,11 +1,13 @@
 package com.cssquids.trimtext.UI;
 
+import com.cssquids.trimtext.Backend.Controller;
 import com.cssquids.trimtext.Statex.CurrentState;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import kotlin.Unit;
 import org.omg.CORBA.Current;
 
 /**
@@ -34,7 +36,7 @@ public class MainScene extends Scene {
             public void handle(KeyEvent ke) {
                 String text = ke.getText();
                 KeyCode code = ke.getCode();
-                System.out.println("onKeyReleased: code="+code+", text="+text);
+                //System.out.println("onKeyReleased: code="+code+", text="+text);
                 if ( code == KeyCode.BACK_SPACE ||
                         code == KeyCode.ENTER ||
                         code == KeyCode.DELETE ) {
@@ -58,6 +60,10 @@ public class MainScene extends Scene {
     private void handleKeyPress(KeyEvent ke) {
         boolean modifier = false;
         String text = ke.getText();
+        /*Controller.INSTANCE.run(() -> {
+            System.out.println("thread pool test");
+            return Unit.INSTANCE;
+        });*/
         KeyCode code = ke.getCode();
         if ( ke.isControlDown() || ke.isMetaDown() ) {
             modifier = true;

@@ -13,9 +13,12 @@ import javafx.scene.layout.VBox
  *
  * This class is for data ONLY -- think of it a fancy data structure
  * DO NOT PUT ANY LOGIC, EVEN OBJECT SETUP, IN THIS CLASS
+ * EVERYTHING MUST BE THREAD SAFE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  *
  */
 class State {
+
+    var threadPoolSize: Int = 5
 
     var settings = SceneSettings()
     var verticalLayout = VBox(settings.getVSpacing())
