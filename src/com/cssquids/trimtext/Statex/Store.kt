@@ -1,9 +1,13 @@
 package com.cssquids.trimtext.Statex
 
 import com.cssquids.trimtext.Main
+import com.cssquids.trimtext.Statex.Internal.Tabs
 import com.cssquids.trimtext.UI.Editor
 import javafx.application.Application
+import javafx.collections.ObservableList
 import javafx.scene.Parent
+import javafx.scene.control.Tab
+import javafx.scene.control.TabPane
 import javafx.scene.layout.VBox
 import java.util.*
 
@@ -24,8 +28,11 @@ class Store {
 
     var ignoreNextPress: Boolean = false
 
-    var editors: Vector<Editor> = Vector()
+    var editors: Vector<Editor> = Vector()//use Vectors not ArrayLists because Vectors are threadsafe
     var currentEditor: Editor? = null
+
+    @JvmField
+    var tabs: Tabs = Tabs()
 
     var settings = SceneSettings()
     var verticalLayout = VBox(settings.getVSpacing())
@@ -33,4 +40,5 @@ class Store {
     var sceneLayout: Parent = verticalLayout //in the future, we could change sceneLayout to something else
     var app: Main? = null //cheap trick to expose app globally.  temporary fix
     //TODO: remove this once Main functionality has been refactored to other classes
+
 }

@@ -23,7 +23,6 @@ public class Main extends Application {
     private static int browserCnt = 1;
 
     private Stage mainStage;
-    private TabPane tabPane;
 
     public Stage getStage() {
         return mainStage;
@@ -35,8 +34,8 @@ public class Main extends Application {
         State.x.setApp(this);
 
         // Add an empty editor to the tab pane
-        tabPane = new TabPane();
-        tabPane.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tab>() {
+        State.x.tabs.setTabPane(new TabPane());
+        State.x.tabs.getTabPane().getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tab>() {
             @Override public void changed(ObservableValue<? extends Tab> tab, Tab oldTab, Tab newTab) {
                 // As the current tab changes, reset the var that tracks
                 // the editor in view. This is used for tracking modified
@@ -47,14 +46,14 @@ public class Main extends Application {
 
         com.cssquids.trimtext.UI.MenuBuilder menuBuilder = new MenuBuilder(this);
 
-        State.x.getVerticalLayout().getChildren().addAll(menuBuilder.make(), tabPane);
+        State.x.getVerticalLayout().getChildren().addAll(menuBuilder.make(), State.x.tabs.getTabPane());
         State.x.getVerticalLayout().setFillWidth(true);
 
         // display the scene
         final MainScene scene = new MainScene(State.x.getSceneLayout());
         // Bind the tab pane width/height to the scene
-        tabPane.prefWidthProperty().bind(scene.widthProperty());
-        tabPane.prefHeightProperty().bind(scene.heightProperty());
+        State.x.tabs.getTabPane().prefWidthProperty().bind(scene.widthProperty());
+        State.x.tabs.getTabPane().prefHeightProperty().bind(scene.heightProperty());
 
         scene.setUpKeyBindings();
 
@@ -89,8 +88,8 @@ public class Main extends Application {
 
         tab.setContent(content.getRoot());
         tab.setText(type);
-        tabPane.getTabs().add(tab);
-        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        State.x.tabs.add(tab);
+        SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
         selectionModel.select(tab);
     }
 
@@ -101,7 +100,7 @@ public class Main extends Application {
 
         // Get current tab, add an "*" to its name to indicate modified
         System.out.println("Indicating text modified");
-        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
         Tab selectedTab = selectionModel.getSelectedItem();
         TextArea area = (TextArea)selectedTab.getContent();
         State.x.setCurrentEditor(getEditorForTextArea(area));
@@ -151,10 +150,10 @@ public class Main extends Application {
             Tab tab = new Tab();
             tab.setText(fileToOpen.getName());
             tab.setContent(editor.getRoot());
-            tabPane.getTabs().add(tab);
+            State.x.tabs.add(tab);
 
             // Make sure the new tab is selected
-            SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+            SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
             selectionModel.select(tab);
         }
     }
@@ -165,7 +164,7 @@ public class Main extends Application {
         Editor editor = null;
         File file = null;
 
-        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
         Tab selectedTab = selectionModel.getSelectedItem();
         editor = getEditorForTextArea((TextArea)selectedTab.getContent());
         if ( editor == null )
@@ -223,7 +222,7 @@ public class Main extends Application {
 
     public void stop() {
         // Go through all open files and save, then exit
-        Iterator<Tab> iter = tabPane.getTabs().iterator();
+        Iterator<Tab> iter = State.x.tabs.getTabs().iterator();
         while ( iter.hasNext() ) {
             try {
                 // Each file is saved by making each tab active then saving
@@ -233,7 +232,7 @@ public class Main extends Application {
                     TextArea area = (TextArea)node;
                     State.x.setCurrentEditor(getEditorForTextArea(area));
                     if ( State.x.getCurrentEditor().modified ) {
-                        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+                        SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
                         selectionModel.select(tab);
                         saveFileRev();
                     }

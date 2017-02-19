@@ -33,6 +33,7 @@ public class MenuBuilder {
         MenuItem fileMenu_NEW = new MenuItem("New");
         fileMenu_NEW.setOnAction(new EventHandler<ActionEvent>() { //create new Editor instance
             public void handle(ActionEvent t) {
+                VFile n = new VFile();
                 parent.createNew(LabelsContainer.getInstance().getEditorLabel());
             }
         });
