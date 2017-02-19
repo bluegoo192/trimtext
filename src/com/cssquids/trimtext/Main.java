@@ -3,7 +3,7 @@ package com.cssquids.trimtext;/**
  */
 
 import com.cssquids.trimtext.Configurables.LabelsContainer;
-import com.cssquids.trimtext.Statex.CurrentState;
+import com.cssquids.trimtext.Statex.State;
 import com.cssquids.trimtext.UI.*;
 import com.cssquids.trimtext.UI.MenuBuilder;
 import javafx.application.Application;
@@ -14,11 +14,9 @@ import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-import org.omg.CORBA.Current;
 
 import java.io.*;
 import java.util.Iterator;
-import java.util.Vector;
 
 public class Main extends Application {
 
@@ -34,7 +32,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         this.mainStage = stage;
-        CurrentState.x.setApp(this);
+        State.x.setApp(this);
 
         // Add an empty editor to the tab pane
         tabPane = new TabPane();
@@ -43,17 +41,17 @@ public class Main extends Application {
                 // As the current tab changes, reset the var that tracks
                 // the editor in view. This is used for tracking modified
                 // editors as the user types
-                CurrentState.x.setCurrentEditor(null);
+                State.x.setCurrentEditor(null);
             }
         });
 
         com.cssquids.trimtext.UI.MenuBuilder menuBuilder = new MenuBuilder(this);
 
-        CurrentState.x.getVerticalLayout().getChildren().addAll(menuBuilder.make(), tabPane);
-        CurrentState.x.getVerticalLayout().setFillWidth(true);
+        State.x.getVerticalLayout().getChildren().addAll(menuBuilder.make(), tabPane);
+        State.x.getVerticalLayout().setFillWidth(true);
 
         // display the scene
-        final MainScene scene = new MainScene(CurrentState.x.getSceneLayout());
+        final MainScene scene = new MainScene(State.x.getSceneLayout());
         // Bind the tab pane width/height to the scene
         tabPane.prefWidthProperty().bind(scene.widthProperty());
         tabPane.prefHeightProperty().bind(scene.heightProperty());
@@ -81,7 +79,7 @@ public class Main extends Application {
         switch ( type ) {
             case "new editor"://see how cancerous this is? we gotta fix -- see Issue 1
                 content = new Editor();
-                CurrentState.x.getEditors().add((Editor) content);
+                State.x.getEditors().add((Editor) content);
                 break;
             case "Browser":
                 content = new WebBrowser();
@@ -97,7 +95,7 @@ public class Main extends Application {
     }
 
     public void indicateFileModified() {
-        if ( CurrentState.x.getCurrentEditor() != null && CurrentState.x.getCurrentEditor().modified ) {
+        if ( State.x.getCurrentEditor() != null && State.x.getCurrentEditor().modified ) {
             return;
         }
 
@@ -106,17 +104,17 @@ public class Main extends Application {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         Tab selectedTab = selectionModel.getSelectedItem();
         TextArea area = (TextArea)selectedTab.getContent();
-        CurrentState.x.setCurrentEditor(getEditorForTextArea(area));
+        State.x.setCurrentEditor(getEditorForTextArea(area));
         String modName = selectedTab.getText();
         if ( ! modName.endsWith("*") ) {
             modName += "*";
             selectedTab.setText(modName);
         }
-        CurrentState.x.getCurrentEditor().modified = true;
+        State.x.getCurrentEditor().modified = true;
     }
 
     private Editor getEditorForTextArea(TextArea area) {
-        Iterator<Editor> iter = CurrentState.x.getEditors().iterator();
+        Iterator<Editor> iter = State.x.getEditors().iterator();
         while ( iter.hasNext() ) {
             Editor editor = iter.next();
             if ( area == (TextArea)editor.getRoot() )
@@ -147,7 +145,7 @@ public class Main extends Application {
             Editor editor = new Editor();
             editor.setText( sb.toString() );
             editor.filename = openFileName;
-            CurrentState.x.getEditors().add(editor);
+            State.x.getEditors().add(editor);
 
             // Create a tab to house the new editor
             Tab tab = new Tab();
@@ -233,8 +231,8 @@ public class Main extends Application {
                 Node node = tab.getContent();
                 if ( node instanceof WebView ) {
                     TextArea area = (TextArea)node;
-                    CurrentState.x.setCurrentEditor(getEditorForTextArea(area));
-                    if ( CurrentState.x.getCurrentEditor().modified ) {
+                    State.x.setCurrentEditor(getEditorForTextArea(area));
+                    if ( State.x.getCurrentEditor().modified ) {
                         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
                         selectionModel.select(tab);
                         saveFileRev();

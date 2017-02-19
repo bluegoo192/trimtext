@@ -1,14 +1,11 @@
 package com.cssquids.trimtext.UI;
 
-import com.cssquids.trimtext.Backend.Controller;
-import com.cssquids.trimtext.Statex.CurrentState;
+import com.cssquids.trimtext.Statex.State;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import kotlin.Unit;
-import org.omg.CORBA.Current;
 
 /**
  * Created by Arthur on 2/14/2017.
@@ -18,7 +15,7 @@ public class MainScene extends Scene {
     public MainScene(Parent root) {
         //as of 2/16/2017, I have no idea what a Parent actually is
         //what I do know is: pass your VBox layout into here
-        super(root, CurrentState.x.getSettings().getWidth(), CurrentState.x.getSettings().getHeight());//finish this
+        super(root, State.x.getSettings().getWidth(), State.x.getSettings().getHeight());//finish this
     }
 
     public void setUpKeyBindings() {
@@ -40,15 +37,15 @@ public class MainScene extends Scene {
                 if ( code == KeyCode.BACK_SPACE ||
                         code == KeyCode.ENTER ||
                         code == KeyCode.DELETE ) {
-                    CurrentState.x.getApp().indicateFileModified();
+                    State.x.getApp().indicateFileModified();
                 }
 
                 // After the "s" is pressed to invoke a save action, make
                 // sure the subsequent release doesn't mark the file
                 // to be saved once again
                 if ( ! (ke.isControlDown() || ke.isMetaDown()) ) {
-                    if ( text.equals("s") && CurrentState.x.getIgnoreNextPress() ) {
-                        CurrentState.x.setIgnoreNextPress(false);
+                    if ( text.equals("s") && State.x.getIgnoreNextPress() ) {
+                        State.x.setIgnoreNextPress(false);
                         return;
                     }
                     handleKeyPress(ke);
@@ -70,18 +67,18 @@ public class MainScene extends Scene {
         }
 
         if ( modifier && text.equalsIgnoreCase("s") ) {
-            CurrentState.x.getApp().saveFileRev();
-            CurrentState.x.setIgnoreNextPress(true);
+            State.x.getApp().saveFileRev();
+            State.x.setIgnoreNextPress(true);
         }
-        else if ( ! CurrentState.x.getIgnoreNextPress() ) {
+        else if ( ! State.x.getIgnoreNextPress() ) {
             if ( code == KeyCode.BACK_SPACE ||
                     code == KeyCode.ENTER ||
                     code == KeyCode.DELETE ) {
-                CurrentState.x.getApp().indicateFileModified();
+                State.x.getApp().indicateFileModified();
             }
             else if ( text != null && text.length() > 0 ) {
                 if ( ! modifier ) {
-                    CurrentState.x.getApp().indicateFileModified();
+                    State.x.getApp().indicateFileModified();
                 }
             }
         }

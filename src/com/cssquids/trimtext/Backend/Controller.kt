@@ -1,6 +1,6 @@
 package com.cssquids.trimtext.Backend
 
-import com.cssquids.trimtext.Statex.CurrentState
+import com.cssquids.trimtext.Statex.State
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -15,7 +15,7 @@ import java.util.concurrent.Executors
  */
 object Controller {
 
-    var executor: ExecutorService = Executors.newFixedThreadPool(CurrentState.x.threadPoolSize);
+    var executor: ExecutorService = Executors.newFixedThreadPool(State.x.threadPoolSize);
 
     fun run(f:() -> Unit) {
         executor.submit(f);
