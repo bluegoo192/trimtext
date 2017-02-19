@@ -1,9 +1,11 @@
 package com.cssquids.trimtext.Statex
 
 import com.cssquids.trimtext.Main
+import com.cssquids.trimtext.UI.Editor
 import javafx.application.Application
 import javafx.scene.Parent
 import javafx.scene.layout.VBox
+import java.util.*
 
 /**
  * Created by Arthur on 2/16/2017.
@@ -19,6 +21,11 @@ import javafx.scene.layout.VBox
 class State {
 
     var threadPoolSize: Int = 5
+
+    var ignoreNextPress: Boolean = false
+
+    var editors: Vector<Editor> = Vector()
+    var currentEditor: Editor? = null
 
     var settings = SceneSettings()
     var verticalLayout = VBox(settings.getVSpacing())

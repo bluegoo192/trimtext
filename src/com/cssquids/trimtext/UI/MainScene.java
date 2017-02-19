@@ -47,8 +47,8 @@ public class MainScene extends Scene {
                 // sure the subsequent release doesn't mark the file
                 // to be saved once again
                 if ( ! (ke.isControlDown() || ke.isMetaDown()) ) {
-                    if ( text.equals("s") && CurrentState.x.getApp().getIgnoreNextPress() ) {
-                        CurrentState.x.getApp().setIgnoreNextPress(false);
+                    if ( text.equals("s") && CurrentState.x.getIgnoreNextPress() ) {
+                        CurrentState.x.setIgnoreNextPress(false);
                         return;
                     }
                     handleKeyPress(ke);
@@ -71,9 +71,9 @@ public class MainScene extends Scene {
 
         if ( modifier && text.equalsIgnoreCase("s") ) {
             CurrentState.x.getApp().saveFileRev();
-            CurrentState.x.getApp().setIgnoreNextPress(true);
+            CurrentState.x.setIgnoreNextPress(true);
         }
-        else if ( ! CurrentState.x.getApp().getIgnoreNextPress() ) {
+        else if ( ! CurrentState.x.getIgnoreNextPress() ) {
             if ( code == KeyCode.BACK_SPACE ||
                     code == KeyCode.ENTER ||
                     code == KeyCode.DELETE ) {

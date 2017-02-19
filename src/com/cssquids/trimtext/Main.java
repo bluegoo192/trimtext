@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import org.omg.CORBA.Current;
 
 import java.io.*;
 import java.util.Iterator;
@@ -25,9 +26,6 @@ public class Main extends Application {
 
     private Stage mainStage;
     private TabPane tabPane;
-    private Vector<Editor> editors = new Vector();
-    private Editor currentEditor = null;
-    static boolean ignoreNextPress = false;
 
     public Stage getStage() {
         return mainStage;
@@ -45,7 +43,7 @@ public class Main extends Application {
                 // As the current tab changes, reset the var that tracks
                 // the editor in view. This is used for tracking modified
                 // editors as the user types
-                currentEditor = null;
+                CurrentState.x.setCurrentEditor(null);
             }
         });
 
@@ -83,7 +81,7 @@ public class Main extends Application {
         switch ( type ) {
             case "new editor"://see how cancerous this is? we gotta fix -- see Issue 1
                 content = new Editor();
-                editors.add((Editor)content);
+                CurrentState.x.getEditors().add((Editor) content);
                 break;
             case "Browser":
                 content = new WebBrowser();
@@ -99,7 +97,7 @@ public class Main extends Application {
     }
 
     public void indicateFileModified() {
-        if ( currentEditor != null && currentEditor.modified ) {
+        if ( CurrentState.x.getCurrentEditor() != null && CurrentState.x.getCurrentEditor().modified ) {
             return;
         }
 
@@ -108,17 +106,17 @@ public class Main extends Application {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         Tab selectedTab = selectionModel.getSelectedItem();
         TextArea area = (TextArea)selectedTab.getContent();
-        currentEditor = getEditorForTextArea(area);
+        CurrentState.x.setCurrentEditor(getEditorForTextArea(area));
         String modName = selectedTab.getText();
         if ( ! modName.endsWith("*") ) {
             modName += "*";
             selectedTab.setText(modName);
         }
-        currentEditor.modified = true;
+        CurrentState.x.getCurrentEditor().modified = true;
     }
 
     private Editor getEditorForTextArea(TextArea area) {
-        Iterator<Editor> iter = editors.iterator();
+        Iterator<Editor> iter = CurrentState.x.getEditors().iterator();
         while ( iter.hasNext() ) {
             Editor editor = iter.next();
             if ( area == (TextArea)editor.getRoot() )
@@ -149,7 +147,7 @@ public class Main extends Application {
             Editor editor = new Editor();
             editor.setText( sb.toString() );
             editor.filename = openFileName;
-            editors.add(editor);
+            CurrentState.x.getEditors().add(editor);
 
             // Create a tab to house the new editor
             Tab tab = new Tab();
@@ -225,11 +223,6 @@ public class Main extends Application {
         }
     }
 
-    public void setIgnoreNextPress(boolean b) {
-        ignoreNextPress = b;
-    }
-    public boolean getIgnoreNextPress() { return ignoreNextPress; }
-
     public void stop() {
         // Go through all open files and save, then exit
         Iterator<Tab> iter = tabPane.getTabs().iterator();
@@ -240,8 +233,8 @@ public class Main extends Application {
                 Node node = tab.getContent();
                 if ( node instanceof WebView ) {
                     TextArea area = (TextArea)node;
-                    currentEditor = getEditorForTextArea(area);
-                    if ( currentEditor.modified ) {
+                    CurrentState.x.setCurrentEditor(getEditorForTextArea(area));
+                    if ( CurrentState.x.getCurrentEditor().modified ) {
                         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
                         selectionModel.select(tab);
                         saveFileRev();

@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d29c068-7373-43e0-9f62-fa3c164c36b7" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Content.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Editor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/WebBrowser$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/WebBrowser$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/WebBrowser.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main$1.class" afterPath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main.class" afterPath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
     </list>
@@ -60,32 +67,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Settings.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Service.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Service.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Syntax.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Features/Syntax.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="-2.4311926">
+              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
+                <element signature="e#9338#9339#0" expanded="true" />
+                <element signature="e#9366#9367#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,9 +86,9 @@
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+              <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
               <folding>
-                <element signature="e#38#168#0" expanded="true" />
+                <element signature="e#38#226#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainScene.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainScene.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.824159">
-              <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,7 +158,6 @@
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/State/State.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/SceneSettings.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/CurrentState.kt" />
-        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/VFile.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/FileBackend.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Settings.java" />
@@ -176,15 +167,16 @@
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/EstimatedLoad.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Features/Syntax.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Features/SyntaxVisuals.java" />
-        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="333" />
-    <option name="y" value="40" />
+    <option name="x" value="68" />
+    <option name="y" value="64" />
     <option name="width" value="1787" />
     <option name="height" value="966" />
   </component>
@@ -753,11 +745,17 @@
       <option name="project" value="LOCAL" />
       <updated>1487363399448</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added basic backend thread pool">
+      <created>1487481611696</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1487481611696</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="333" y="40" width="1787" height="966" extended-state="0" />
+    <frame x="68" y="64" width="1787" height="966" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -808,11 +806,12 @@
     <MESSAGE value="Finished basic state stuff" />
     <MESSAGE value="Created custom Scene extension" />
     <MESSAGE value="Added a bunch of stub classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a bunch of stub classes" />
+    <MESSAGE value="added basic backend thread pool" />
+    <option name="LAST_COMMIT_MESSAGE" value="added basic backend thread pool" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -874,8 +873,6 @@
             <element signature="method#getEditorForTextArea#0;class#Main#0" expanded="false" />
             <element signature="method#chooseAndLoadFile#0;class#Main#0" expanded="false" />
             <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
-            <element signature="e#8001#8002#0" expanded="true" />
-            <element signature="e#8036#8037#0" expanded="true" />
             <element signature="method#stop#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -946,8 +943,6 @@
             <element signature="method#getEditorForTextArea#0;class#Main#0" expanded="false" />
             <element signature="method#chooseAndLoadFile#0;class#Main#0" expanded="false" />
             <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
-            <element signature="e#8001#8002#0" expanded="true" />
-            <element signature="e#8036#8037#0" expanded="true" />
             <element signature="method#stop#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -1012,8 +1007,6 @@
             <element signature="method#getEditorForTextArea#0;class#Main#0" expanded="false" />
             <element signature="method#chooseAndLoadFile#0;class#Main#0" expanded="false" />
             <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
-            <element signature="e#8001#8002#0" expanded="true" />
-            <element signature="e#8036#8037#0" expanded="true" />
             <element signature="method#stop#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -1058,8 +1051,6 @@
             <element signature="method#getEditorForTextArea#0;class#Main#0" expanded="false" />
             <element signature="method#chooseAndLoadFile#0;class#Main#0" expanded="false" />
             <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
-            <element signature="e#8001#8002#0" expanded="true" />
-            <element signature="e#8036#8037#0" expanded="true" />
             <element signature="method#stop#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -1150,23 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="62" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#indicateFileModified#0;class#Main#0" expanded="false" />
-            <element signature="method#getEditorForTextArea#0;class#Main#0" expanded="false" />
-            <element signature="method#chooseAndLoadFile#0;class#Main#0" expanded="false" />
-            <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
-            <element signature="e#8001#8002#0" expanded="true" />
-            <element signature="e#8036#8037#0" expanded="true" />
-            <element signature="method#stop#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/FileManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1179,14 +1153,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1266,16 +1232,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-          <folding>
-            <element signature="e#38#168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/CurrentState.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22584541">
@@ -1302,12 +1258,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+          <folding>
+            <element signature="e#38#226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.824159">
-          <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4311926">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#saveFileRev#0;class#Main#0" expanded="false" />
+            <element signature="e#9338#9339#0" expanded="true" />
+            <element signature="e#9366#9367#0" expanded="true" />
           </folding>
         </state>
       </provider>
