@@ -73,30 +73,6 @@ public class Main extends Application {
         stage.show();
     }
 
-    public void createNew(Content.Type type) {
-        Tab tab = new Tab();
-        Content content = null;
-
-        switch ( type ) {
-            case EDITOR://see how cancerous this is? we gotta fix -- see Issue 1
-                //This portion has been replaced by VFile.make().  keeping for archival only
-                content = new Editor(tab);
-                State.x.getEditors().add((Editor) content);
-                System.err.println("createNew(EDITOR) just run.. something is wrong");
-                tab.setText(LabelsContainer.getInstance().getEditorLabel());
-                break;
-            case BROWSER:
-                content = new WebBrowser(State.x.getCurrentEditor());
-                tab.setText(LabelsContainer.getInstance().getBrowserLabel());
-                break;
-        }
-
-        tab.setContent(content.getRoot());
-        State.x.tabs.add(tab);
-        State.x.tabs.getSelectModel().select(tab);
-        System.err.println("createNew was run.. this isn't supposed to happen");
-    }
-
     public void indicateFileModified() {
         if ( State.x.getCurrentEditor() != null && State.x.getCurrentEditor().modified ) {
             return;
