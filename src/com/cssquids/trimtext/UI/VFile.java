@@ -23,6 +23,6 @@ public class VFile {
         tab.setText(LabelsContainer.getInstance().getEditorLabel());
         tab.setContent(editor.getRoot());
         State.x.tabs.add(tab);
-        State.x.tabs.getSelectModel().select(tab);
+        State.x.setCurrentEditor(editor);
     }
 }

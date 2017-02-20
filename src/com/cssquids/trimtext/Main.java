@@ -155,8 +155,6 @@ public class Main extends Application {
             State.x.tabs.add(tab);
 
             // Make sure the new tab is selected
-            SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
-            selectionModel.select(tab);
             State.x.setCurrentEditor(editor);
         }
     }

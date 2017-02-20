@@ -25,9 +25,7 @@ public class Editor implements Content {
         parentTab = t;
     }
 
-    public void select() {
-        State.x.tabs.getSelectModel().select(parentTab);
-    }
+    public Tab getParentTab() { return parentTab; }
 
     public boolean isModified() {
         return modified;
