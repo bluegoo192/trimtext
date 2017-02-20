@@ -16,7 +16,7 @@ public class Editor implements Content {
     public String filename = null;
 
     public Editor(Tab t) {
-        content = new VFile();
+        content = new VFile(this);
         parentTab = t;
     }
 
@@ -24,6 +24,8 @@ public class Editor implements Content {
         content = v;
         parentTab = t;
     }
+
+    public void save() { content.saveFileRev(); }
 
     public Tab getParentTab() { return parentTab; }
 

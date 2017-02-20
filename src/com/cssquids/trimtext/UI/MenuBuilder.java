@@ -47,7 +47,7 @@ public class MenuBuilder {
         MenuItem fileMenu_SAVE = new MenuItem("Save");
         fileMenu_SAVE.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
-                parent.saveFileRev();
+                State.x.getCurrentEditor().save();
             }
         });
         MenuItem fileMenu_EXIT = new MenuItem("Exit");
