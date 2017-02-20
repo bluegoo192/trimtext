@@ -18,4 +18,7 @@ class Tabs {
     fun getTabs(): ObservableList<Tab>? { return tabPane?.getTabs(); }
     fun add(t: Tab): Unit { tabPane?.getTabs()?.add(t) }
     fun getSelectModel(): SingleSelectionModel<Tab>? { return tabPane?.getSelectionModel() }
+    fun getCurrentTab(): Tab? {
+        return getSelectModel()?.getSelectedItem()
+    }
 }

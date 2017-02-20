@@ -99,9 +99,7 @@ public class Main extends Application {
         }
 
         // Get current tab, add an "*" to its name to indicate modified
-        System.out.println("Indicating text modified");
-        SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
-        Tab selectedTab = selectionModel.getSelectedItem();
+        Tab selectedTab = State.x.tabs.getCurrentTab();
         TextArea area = (TextArea)selectedTab.getContent();
         State.x.setCurrentEditor(getEditorForTextArea(area));
         String modName = selectedTab.getText();
