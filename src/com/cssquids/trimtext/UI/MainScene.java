@@ -1,11 +1,13 @@
 package com.cssquids.trimtext.UI;
 
+import com.cssquids.trimtext.Backend.Controller;
 import com.cssquids.trimtext.Statex.State;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import kotlin.Unit;
 
 /**
  * Created by Arthur on 2/14/2017.
@@ -58,7 +60,7 @@ public class MainScene extends Scene {
         boolean modifier = false;
         String text = ke.getText();
         /*Controller.INSTANCE.run(() -> {
-            System.out.println("thread pool test");
+            System.out.println(State.x.getCurrentEditor());
             return Unit.INSTANCE;
         });*/
         KeyCode code = ke.getCode();

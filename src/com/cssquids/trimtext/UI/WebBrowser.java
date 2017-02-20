@@ -1,10 +1,12 @@
 package com.cssquids.trimtext.UI;
 
+import com.cssquids.trimtext.Statex.State;
 import com.cssquids.trimtext.UI.Content;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -32,6 +34,18 @@ public class WebBrowser implements Content {
 
         final WebEngine webEngine = webView.getEngine();
         webEngine.load(DEFAULT_URL);
+        if (State.x.getCurrentEditor() != null && State.x.getCurrentEditor().filename != null) {
+            if (State.x.getCurrentEditor().filename.endsWith(".html")) {
+                webEngine.loadContent(State.x.getCurrentEditor().getText());
+            } else {
+                System.err.println("You can only preview html files!");
+            }
+        } else {
+            System.err.println("Current editor is null");
+        }
+        //Node c = State.x.tabs.getCurrentTab().getContent();
+        //if (c instanceof Editor) c = (Editor) c
+
 
         final TextField locationField = new TextField(DEFAULT_URL);
         webEngine.locationProperty().addListener(new ChangeListener<String>() {

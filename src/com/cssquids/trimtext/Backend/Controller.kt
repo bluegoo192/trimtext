@@ -21,4 +21,8 @@ object Controller {
         executor.submit(f);
     }
 
+    fun stop() {
+        executor.shutdown();
+    }
+
 }

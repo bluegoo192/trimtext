@@ -2,6 +2,7 @@ package com.cssquids.trimtext;/**
  * Created by Arthur on 2/8/2017.
  */
 
+import com.cssquids.trimtext.Backend.Controller;
 import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Statex.State;
 import com.cssquids.trimtext.UI.*;
@@ -64,7 +65,8 @@ public class Main extends Application {
 //            });
 //
         // Make sure one new editor is open by default
-        createNew(Content.Type.EDITOR);
+        VFile n = new VFile();
+        n.make();
 
         stage.setScene(scene);
         stage.setTitle("Simple Editor / Browser");
@@ -154,6 +156,7 @@ public class Main extends Application {
             // Make sure the new tab is selected
             SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
             selectionModel.select(tab);
+            State.x.setCurrentEditor(editor);
         }
     }
 
@@ -222,22 +225,22 @@ public class Main extends Application {
     public void stop() {
         // Go through all open files and save, then exit
         Iterator<Tab> iter = State.x.tabs.getTabs().iterator();
+        Controller.INSTANCE.stop();
         while ( iter.hasNext() ) {
             try {
                 // Each file is saved by making each tab active then saving
                 Tab tab = iter.next();
                 Node node = tab.getContent();
-                if ( node instanceof WebView ) {
-                    TextArea area = (TextArea)node;
+                if (node instanceof WebView) {
+                    TextArea area = (TextArea) node;
                     State.x.setCurrentEditor(getEditorForTextArea(area));
-                    if ( State.x.getCurrentEditor().modified ) {
+                    if (State.x.getCurrentEditor().modified) {
                         SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
                         selectionModel.select(tab);
                         saveFileRev();
                     }
                 }
-            }
-            catch ( Exception e ) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
