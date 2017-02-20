@@ -1,6 +1,8 @@
 package com.cssquids.trimtext.UI;
 
+import com.cssquids.trimtext.Statex.State;
 import com.cssquids.trimtext.UI.Content;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 
 /**
@@ -9,15 +11,22 @@ import javafx.scene.control.TextArea;
 public class Editor implements Content {
     public boolean modified = false;
     public TextArea textArea = new TextArea();
+    private Tab parentTab = null;
     public VFile content;
     public String filename = null;
 
-    public Editor() {
+    public Editor(Tab t) {
         content = new VFile();
+        parentTab = t;
     }
 
-    public Editor(VFile v) {
+    public Editor(Tab t, VFile v) {
         content = v;
+        parentTab = t;
+    }
+
+    public void select() {
+        State.x.tabs.getSelectModel().select(parentTab);
     }
 
     public boolean isModified() {

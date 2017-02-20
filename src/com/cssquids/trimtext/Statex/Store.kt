@@ -29,7 +29,7 @@ class Store {
     var ignoreNextPress: Boolean = false
 
     var editors: Vector<Editor> = Vector()//use Vectors not ArrayLists because Vectors are threadsafe
-    var currentEditor: Editor? = null
+    private var currentEditor: Editor? = null
 
     @JvmField
     var tabs: Tabs = Tabs()
@@ -40,5 +40,14 @@ class Store {
     var sceneLayout: Parent = verticalLayout //in the future, we could change sceneLayout to something else
     var app: Main? = null //cheap trick to expose app globally.  temporary fix
     //TODO: remove this once Main functionality has been refactored to other classes
+
+    fun setCurrentEditor(ed: Editor?) {
+        currentEditor = ed
+        ed?.select()
+    }
+
+    fun getCurrentEditor(): Editor? {
+        return currentEditor
+    }
 
 }

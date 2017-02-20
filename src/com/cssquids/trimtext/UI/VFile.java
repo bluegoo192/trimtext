@@ -18,7 +18,7 @@ public class VFile {
 
     public void make() {
         Tab tab = new Tab();
-        Editor editor = new Editor(this);
+        Editor editor = new Editor(tab, this);
         State.x.getEditors().add(editor);
         tab.setText(LabelsContainer.getInstance().getEditorLabel());
         tab.setContent(editor.getRoot());
