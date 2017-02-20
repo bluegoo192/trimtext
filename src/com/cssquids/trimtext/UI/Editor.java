@@ -9,7 +9,16 @@ import javafx.scene.control.TextArea;
 public class Editor implements Content {
     public boolean modified = false;
     public TextArea textArea = new TextArea();
+    public VFile content;
     public String filename = null;
+
+    public Editor() {
+        content = new VFile();
+    }
+
+    public Editor(VFile v) {
+        content = v;
+    }
 
     public boolean isModified() {
         return modified;

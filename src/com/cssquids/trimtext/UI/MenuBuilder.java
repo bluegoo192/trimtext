@@ -34,7 +34,7 @@ public class MenuBuilder {
         fileMenu_NEW.setOnAction(new EventHandler<ActionEvent>() { //create new Editor instance
             public void handle(ActionEvent t) {
                 VFile n = new VFile();
-                parent.createNew(Content.Type.EDITOR);
+                n.make();
             }
         });
         MenuItem fileMenu_OPEN = new MenuItem("Open");

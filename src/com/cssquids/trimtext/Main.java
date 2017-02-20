@@ -77,8 +77,10 @@ public class Main extends Application {
 
         switch ( type ) {
             case EDITOR://see how cancerous this is? we gotta fix -- see Issue 1
+                //This portion has been replaced by VFile.make().  keeping for archival only
                 content = new Editor();
                 State.x.getEditors().add((Editor) content);
+                System.err.println("createNew(EDITOR) just run.. something is wrong");
                 tab.setText(LabelsContainer.getInstance().getEditorLabel());
                 break;
             case BROWSER:
