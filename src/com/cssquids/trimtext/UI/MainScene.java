@@ -69,7 +69,7 @@ public class MainScene extends Scene {
         }
 
         if ( modifier && text.equalsIgnoreCase("s") ) {
-            State.x.getApp().saveFileRev();
+            State.x.getCurrentEditor().save();
             State.x.setIgnoreNextPress(true);
         }
         else if ( ! State.x.getIgnoreNextPress() ) {

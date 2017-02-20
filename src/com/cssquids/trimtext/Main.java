@@ -136,68 +136,6 @@ public class Main extends Application {
         }
     }
 
-    public void saveFileRev() {
-        System.out.println("saving file");
-        boolean success = false;
-        Editor editor = null;
-        File file = null;
-
-        SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
-        Tab selectedTab = selectionModel.getSelectedItem();
-        editor = getEditorForTextArea((TextArea)selectedTab.getContent());
-        if ( editor == null )
-            return;
-        String openFileName = editor.filename;
-
-        if ( openFileName == null ) {
-            // No file was opened. The user just started typing
-            // Save new file now
-            FileChooser fc = new FileChooser();
-            File newFile = fc.showSaveDialog(null);
-            if ( newFile != null ) {
-                // Check for a file extension and add ".txt" if missing
-                if ( ! newFile.getName().contains(".") ) {
-                    String newFilePath = newFile.getAbsolutePath();
-                    newFilePath += ".txt";
-                    newFile.delete();
-                    newFile = new File(newFilePath);
-                }
-                file = newFile;
-                openFileName = new String(newFile.getAbsolutePath());
-                editor.filename = openFileName;
-                selectedTab.setText(newFile.getName());
-            }
-        }
-        else {
-            // User is saving an existing file
-            file = new File(openFileName);
-        }
-
-        // Write the content to the file
-        try (FileOutputStream fos = new FileOutputStream(file);
-             BufferedOutputStream bos = new BufferedOutputStream(fos) ) {
-            String text = editor.getText();
-            bos.write(text.getBytes());
-            bos.flush();
-            success = true;
-        }
-        catch ( Exception e ) {
-            success = false;
-            System.out.println("File save failed (error: " + e.getLocalizedMessage() + ")");
-            e.printStackTrace();
-        }
-        finally {
-            if ( success ) {
-                if ( editor != null ) {
-                    editor.modified = false;
-                }
-
-                // The the tab's filename
-                selectedTab.setText(file.getName());
-            }
-        }
-    }
-
     public void stop() {
         // Go through all open files and save, then exit
         Iterator<Tab> iter = State.x.tabs.getTabs().iterator();
@@ -213,7 +151,7 @@ public class Main extends Application {
                     if (State.x.getCurrentEditor().modified) {
                         SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
                         selectionModel.select(tab);
-                        saveFileRev();
+                        State.x.getCurrentEditor().save();
                     }
                 }
             } catch (Exception e) {
