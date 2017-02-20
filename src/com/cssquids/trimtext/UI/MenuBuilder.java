@@ -34,7 +34,7 @@ public class MenuBuilder {
         fileMenu_NEW.setOnAction(new EventHandler<ActionEvent>() { //create new Editor instance
             public void handle(ActionEvent t) {
                 VFile n = new VFile();
-                parent.createNew(LabelsContainer.getInstance().getEditorLabel());
+                parent.createNew(Content.Type.EDITOR);
             }
         });
         MenuItem fileMenu_OPEN = new MenuItem("Open");
@@ -69,7 +69,7 @@ public class MenuBuilder {
         MenuItem viewMenu_WEB = new MenuItem("Web Page");
         viewMenu_WEB.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
-                parent.createNew(LabelsContainer.getInstance().getBrowserLabel());
+                parent.createNew(Content.Type.BROWSER);
             }
         });
         viewMenu.getItems().addAll(viewMenu_WEB);

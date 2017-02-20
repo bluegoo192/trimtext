@@ -64,33 +64,32 @@ public class Main extends Application {
 //            });
 //
         // Make sure one new editor is open by default
-        createNew(LabelsContainer.getInstance().getEditorLabel());
+        createNew(Content.Type.EDITOR);
 
         stage.setScene(scene);
         stage.setTitle("Simple Editor / Browser");
         stage.show();
     }
 
-    public void createNew(String type) {
+    public void createNew(Content.Type type) {
         Tab tab = new Tab();
         Content content = null;
 
         switch ( type ) {
-            case "new editor"://see how cancerous this is? we gotta fix -- see Issue 1
+            case EDITOR://see how cancerous this is? we gotta fix -- see Issue 1
                 content = new Editor();
                 State.x.getEditors().add((Editor) content);
+                tab.setText(LabelsContainer.getInstance().getEditorLabel());
                 break;
-            case "Browser":
+            case BROWSER:
                 content = new WebBrowser();
-                type += (browserCnt++);
+                tab.setText(LabelsContainer.getInstance().getBrowserLabel());
                 break;
         }
 
         tab.setContent(content.getRoot());
-        tab.setText(type);
         State.x.tabs.add(tab);
-        SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
-        selectionModel.select(tab);
+        State.x.tabs.getSelectModel().select(tab);
     }
 
     public void indicateFileModified() {
