@@ -2,6 +2,7 @@ package com.cssquids.trimtext.UI;
 
 import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Main;
+import com.cssquids.trimtext.Statex.State;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -69,7 +70,9 @@ public class MenuBuilder {
         MenuItem viewMenu_WEB = new MenuItem("Web Page");
         viewMenu_WEB.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
-                parent.createNew(Content.Type.BROWSER);
+                System.out.println(": " +State.x.getCurrentEditor());
+                WebBrowser browser = new WebBrowser(State.x.getCurrentEditor());
+                browser.make();
             }
         });
         viewMenu.getItems().addAll(viewMenu_WEB);

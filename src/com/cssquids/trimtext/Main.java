@@ -86,7 +86,7 @@ public class Main extends Application {
                 tab.setText(LabelsContainer.getInstance().getEditorLabel());
                 break;
             case BROWSER:
-                content = new WebBrowser();
+                content = new WebBrowser(State.x.getCurrentEditor());
                 tab.setText(LabelsContainer.getInstance().getBrowserLabel());
                 break;
         }
@@ -94,6 +94,7 @@ public class Main extends Application {
         tab.setContent(content.getRoot());
         State.x.tabs.add(tab);
         State.x.tabs.getSelectModel().select(tab);
+        System.err.println("createNew was run.. this isn't supposed to happen");
     }
 
     public void indicateFileModified() {

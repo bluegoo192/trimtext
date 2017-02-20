@@ -1,5 +1,6 @@
 package com.cssquids.trimtext.UI;
 
+import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Statex.State;
 import com.cssquids.trimtext.UI.Content;
 import javafx.beans.value.ChangeListener;
@@ -8,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -28,15 +30,19 @@ public class WebBrowser implements Content {
         return root;
     }
 
-    public WebBrowser() {
+    public WebBrowser(Editor current) {
         root = new VBox();
         webView = new WebView();
+        System.out.println(current);
 
         final WebEngine webEngine = webView.getEngine();
         webEngine.load(DEFAULT_URL);
-        if (State.x.getCurrentEditor() != null && State.x.getCurrentEditor().filename != null) {
-            if (State.x.getCurrentEditor().filename.endsWith(".html")) {
-                webEngine.loadContent(State.x.getCurrentEditor().getText());
+        if (current != null) {
+            if (current.filename != null) {
+                System.err.println("Current editor filename is null");
+            }
+            if (current.filename.endsWith(".html")) {
+                webEngine.loadContent(current.getText());
             } else {
                 System.err.println("You can only preview html files!");
             }
@@ -76,5 +82,13 @@ public class WebBrowser implements Content {
         VBox.setVgrow(webView, Priority.ALWAYS);
 
         root.getChildren().add(vBox);
+    }
+
+    public void make() {
+        Tab tab = new Tab();
+        tab.setText(LabelsContainer.getInstance().getBrowserLabel());
+        tab.setContent(this.getRoot());
+        State.x.tabs.add(tab);
+        State.x.tabs.getSelectModel().select(tab);
     }
 }

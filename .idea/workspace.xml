@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d29c068-7373-43e0-9f62-fa3c164c36b7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main.class" afterPath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/Store.kt" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/Store.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Editor.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Editor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MenuBuilder.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MenuBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/WebBrowser.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/WebBrowser.java" />
     </list>
     <ignored path="TrimText.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="157" column="29" selection-start-line="157" selection-start-column="29" selection-end-line="157" selection-end-column="29" />
+              <caret line="158" column="35" selection-start-line="158" selection-start-column="35" selection-end-line="158" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebBrowser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WebBrowser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/WebBrowser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20336391">
-              <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -95,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Store.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Store.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/Store.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.7140673">
+              <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
               <folding>
                 <element signature="e#38#385#0" expanded="true" />
               </folding>
@@ -123,11 +122,9 @@
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MenuBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+              <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2333#2334#0" expanded="true" />
-                <element signature="e#2403#2404#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -184,15 +181,15 @@
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/State.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/Internal/Tabs.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Content.java" />
-        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MenuBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/TabPane.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Tab.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" />
-        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/WebBrowser.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
-        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Editor.java" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/WebBrowser.java" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MenuBuilder.java" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/Store.kt" />
       </list>
     </option>
@@ -848,7 +845,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487618268674</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="removed Editor.select().  Just use State.x.setCurrentEditor()">
+      <created>1487618706909</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1487618706909</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -912,7 +915,8 @@
     <MESSAGE value="moved new editor logic to VFile. should be easier to read and understand now" />
     <MESSAGE value="View -&gt; Web Page now previews the current file(if it's an html file)" />
     <MESSAGE value="made Editor store a reference to its container tab.  added Editor.select() as a replacement for State.x.tabs.getSelectModel().select()" />
-    <option name="LAST_COMMIT_MESSAGE" value="made Editor store a reference to its container tab.  added Editor.select() as a replacement for State.x.tabs.getSelectModel().select()" />
+    <MESSAGE value="removed Editor.select().  Just use State.x.setCurrentEditor()" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed Editor.select().  Just use State.x.setCurrentEditor()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -960,6 +964,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -967,6 +972,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -976,8 +984,6 @@
           <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2333#2334#0" expanded="true" />
-            <element signature="e#2403#2404#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1027,6 +1033,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1036,8 +1045,6 @@
           <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2333#2334#0" expanded="true" />
-            <element signature="e#2403#2404#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1079,8 +1086,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2333#2334#0" expanded="true" />
-            <element signature="e#2403#2404#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1155,6 +1160,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1169,6 +1175,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1273,8 +1282,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <element signature="e#39#162#0" expanded="true" />
+            <element signature="e#39#162#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1298,21 +1315,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Editor.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/WebBrowser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="29" selection-start-line="157" selection-start-column="29" selection-end-line="157" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1326,33 +1333,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/Store.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
-          <folding>
-            <element signature="e#38#385#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MenuBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2333#2334#0" expanded="true" />
-            <element signature="e#2403#2404#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/WebBrowser.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20336391">
-          <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="158" column="35" selection-start-line="158" selection-start-column="35" selection-end-line="158" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/Store.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7140673">
+          <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+          <folding>
+            <element signature="e#38#385#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
