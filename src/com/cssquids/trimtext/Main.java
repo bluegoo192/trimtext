@@ -101,41 +101,6 @@ public class Main extends Application {
         return null;
     }
 
-    public void chooseAndLoadFile() {
-        FileChooser fc = new FileChooser();
-        File fileToOpen = fc.showOpenDialog(null);
-        if ( fileToOpen != null ) {
-            // Read the file, and set its contents within the editor
-            String openFileName = fileToOpen.getAbsolutePath();
-            StringBuffer sb = new StringBuffer();
-            try (FileInputStream fis = new FileInputStream(fileToOpen);
-                 BufferedInputStream bis = new BufferedInputStream(fis) ) {
-                while ( bis.available() > 0 ) {
-                    sb.append((char)bis.read());
-                }
-            }
-            catch ( Exception e ) {
-                e.printStackTrace();
-            }
-
-            // Create the editor with this content and store it
-            Tab tab = new Tab();
-            Editor editor = new Editor(tab);
-            editor.setText( sb.toString() );
-            editor.filename = openFileName;
-            State.x.getEditors().add(editor);
-
-            // Create a tab to house the new editor
-
-            tab.setText(fileToOpen.getName());
-            tab.setContent(editor.getRoot());
-            State.x.tabs.add(tab);
-
-            // Make sure the new tab is selected
-            State.x.setCurrentEditor(editor);
-        }
-    }
-
     public void stop() {
         // Go through all open files and save, then exit
         Iterator<Tab> iter = State.x.tabs.getTabs().iterator();

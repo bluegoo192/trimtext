@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d29c068-7373-43e0-9f62-fa3c164c36b7" name="Default" comment="created VFile.load() method to remove choosing/loading files from Main">
+    <list default="true" id="1d29c068-7373-43e0-9f62-fa3c164c36b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main.class" afterPath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MenuBuilder.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MenuBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
     </list>
     <ignored path="TrimText.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="135" column="9" selection-start-line="106" selection-start-column="8" selection-end-line="135" selection-end-column="9" />
+            <state vertical-scroll-proportion="1.8455971">
+              <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VFile.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1797346">
+            <state vertical-scroll-proportion="0.0">
               <caret line="74" column="33" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
               <folding />
             </state>
@@ -185,10 +184,10 @@
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/Store.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Editor.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
-        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MenuBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
       </list>
     </option>
   </component>
@@ -879,7 +878,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487748712129</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fixed bug where opening a file also created a new one">
+      <created>1487750056548</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1487750056548</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -922,7 +927,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="More refactoring" />
     <MESSAGE value="Changed layout setup from deprecated VBoxBuilder to constructor that pulls from LayoutSettings" />
     <MESSAGE value="Added some stub inheritance stuff" />
     <MESSAGE value="moved menu stuff into new class" />
@@ -947,7 +951,8 @@
     <MESSAGE value="moved save method to VFile" />
     <MESSAGE value="removed saveFileRev() from main" />
     <MESSAGE value="created VFile.load() method to remove choosing/loading files from Main" />
-    <option name="LAST_COMMIT_MESSAGE" value="created VFile.load() method to remove choosing/loading files from Main" />
+    <MESSAGE value="fixed bug where opening a file also created a new one" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug where opening a file also created a new one" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1338,16 +1343,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="135" column="9" selection-start-line="106" selection-start-column="8" selection-end-line="135" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Editor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1386,9 +1381,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1797346">
+        <state vertical-scroll-proportion="0.0">
           <caret line="74" column="33" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8455971">
+          <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
