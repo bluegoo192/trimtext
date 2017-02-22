@@ -13,10 +13,18 @@ import java.io.*;
 /**
  * Created by Arthur on 2/17/2017.
  */
+
+//TODO: Convert this to Kotlin and use the Elvis operator(instead of long if-else's) in make()
 public class VFile {
 
     FileBackend backend = null;
     Editor parentEditor;
+
+    public boolean usesFile = false;
+
+    private String content = null;
+    private String fileName = null;
+    private File file = null;
 
     public VFile() {
         backend = new FileBackend();
@@ -29,8 +37,17 @@ public class VFile {
     public void make() {
         Tab tab = new Tab();
         parentEditor = new Editor(tab, this);
+
+        if (this.usesFile) {
+            parentEditor.setText( content );
+            parentEditor.filename = fileName;
+            tab.setText(file.getName());
+        } else {
+            tab.setText(LabelsContainer.getInstance().getEditorLabel());
+        }
+
         State.x.getEditors().add(parentEditor);
-        tab.setText(LabelsContainer.getInstance().getEditorLabel());
+
         tab.setContent(parentEditor.getRoot());
         State.x.tabs.add(tab);
         State.x.setCurrentEditor(parentEditor);
@@ -38,10 +55,10 @@ public class VFile {
 
     public void load() {
         FileChooser f = new FileChooser();
-        File file = f.showOpenDialog(null);
+        file = f.showOpenDialog(null);
         if ( f != null ) {
             // Read the file, and set its contents within the editor
-            String fileName = file.getAbsolutePath();
+            fileName = file.getAbsolutePath();
             StringBuffer buffer = new StringBuffer();
             try (FileInputStream fis = new FileInputStream(file);
                  BufferedInputStream bis = new BufferedInputStream(fis) ) {
@@ -53,22 +70,9 @@ public class VFile {
                 System.out.println("Failed to load file");
                 e.printStackTrace();
             }
+            content = buffer.toString();
 
-            // Create the editor with this content and store it
-            Tab tab = new Tab();
-            parentEditor = new Editor(tab, this);
-            parentEditor.setText( buffer.toString() );
-            parentEditor.filename = fileName;
-            State.x.getEditors().add(parentEditor);
-
-            // Create a tab to house the new editor
-
-            tab.setText(file.getName());
-            tab.setContent(parentEditor.getRoot());
-            State.x.tabs.add(tab);
-
-            // Make sure the new tab is selected
-            State.x.setCurrentEditor(parentEditor);
+            this.usesFile = true;
         }
     }
 
