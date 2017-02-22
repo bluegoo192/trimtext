@@ -23,13 +23,6 @@ object Controller {
         return executor.submit(f);
     }
 
-    fun <V> run(f:() -> V, callback:(V) -> Unit) { //runs a function, and runs callback when f is complete
-        fun fc() {
-            var result: Future<V> = executor.submit(f);
-            callback(result.get());
-        }
-    }
-
     fun java_run(f:() -> Unit) {
         executor.submit(f);
     }
