@@ -95,16 +95,6 @@ public class Main extends Application {
         State.x.getCurrentEditor().modified = true;
     }
 
-    private Editor getEditorForTextArea(TextArea area) {
-        Iterator<Editor> iter = State.x.getEditors().iterator();
-        while ( iter.hasNext() ) {
-            Editor editor = iter.next();
-            if ( area == (TextArea)editor.getRoot() )
-                return editor;
-        }
-        return null;
-    }
-
     public void stop() {
         // Go through all open files and save, then exit
         Iterator<Tab> iter = State.x.tabs.getTabs().iterator();
@@ -115,8 +105,8 @@ public class Main extends Application {
                 Tab tab = iter.next();
                 Node node = tab.getContent();
                 if (node instanceof WebView) {
-                    TextArea area = (TextArea) node;
-                    State.x.setCurrentEditor(getEditorForTextArea(area));
+                    Editor ed = (Editor) node;
+                    State.x.setCurrentEditor(ed);
                     if (State.x.getCurrentEditor().modified) {
                         SingleSelectionModel<Tab> selectionModel = State.x.tabs.getSelectModel();
                         selectionModel.select(tab);
