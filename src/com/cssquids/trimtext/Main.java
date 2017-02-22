@@ -3,7 +3,6 @@ package com.cssquids.trimtext;/**
  */
 
 import com.cssquids.trimtext.Backend.Controller;
-import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Statex.State;
 import com.cssquids.trimtext.UI.*;
 import com.cssquids.trimtext.UI.MenuBuilder;
@@ -12,28 +11,35 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.stage.FileChooser;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
-import java.io.*;
 import java.util.Iterator;
+
+/**
+ * Many, many thanks to the tutorial by Eric Bruno on Dr. Dobbs Bloggers(link below)
+ * http://www.drdobbs.com/jvm/a-javafx-file-editor-part-2/240142542?pgno=2
+ * Got us started with a lot of the basic logic and JavaFX code.
+ * Thus, parts of this code use very similar logic as his tutorial
+ * A few parts are directly copied from the tutorial, we are working to rewrite these;
+ * until then, those parts are marked 'Code up to ~~~~~ written by Eric Bruno'
+ *
+ * TODO: REMOVE ERIC'S CODE AND THIS COMMENT
+ */
 
 public class Main extends Application {
 
-    private static int browserCnt = 1;
-
-    private Stage mainStage;
-
+    private Stage myStage;
     public Stage getStage() {
-        return mainStage;
+        return myStage;
     }
 
     @Override
     public void start(Stage stage) {
-        this.mainStage = stage;
+        this.myStage = stage;
         State.x.setApp(this);
 
+        //Code up to ~~~~~ written by Eric Bruno
         // Add an empty editor to the tab pane
         State.x.tabs.setTabPane(new TabPane());
         State.x.tabs.getTabPane().getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tab>() {
@@ -44,6 +50,7 @@ public class Main extends Application {
                 State.x.setCurrentEditor(null);
             }
         });
+        //~~~~~
 
         com.cssquids.trimtext.UI.MenuBuilder menuBuilder = new MenuBuilder(this);
 
@@ -58,21 +65,19 @@ public class Main extends Application {
 
         scene.setUpKeyBindings();
 
-//        scene.setOnKeyTyped(new EventHandler<KeyEvent>() {
-//                public void handle(KeyEvent ke) {
-//                    handleKeyPress(ke);
-//                }
-//            });
-//
         // Make sure one new editor is open by default
         VFile n = new VFile();
         n.make();
 
+        //Code up to ~~~~~ written by Eric Bruno
         stage.setScene(scene);
         stage.setTitle("Simple Editor / Browser");
         stage.show();
+        //~~~~~
     }
 
+    //Code up to ~~~~~ written by Eric Bruno
+    //(well, basically.  we made some minor changes)
     public void indicateFileModified() {
         if ( State.x.getCurrentEditor() != null && State.x.getCurrentEditor().modified ) {
             return;
@@ -97,7 +102,6 @@ public class Main extends Application {
             if ( area == (TextArea)editor.getRoot() )
                 return editor;
         }
-
         return null;
     }
 
@@ -136,4 +140,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    //~~~~~~
 }

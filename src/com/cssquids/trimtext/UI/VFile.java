@@ -78,6 +78,7 @@ public class VFile {
         return this;
     }
 
+    //Code up to ~~~~~ written by Eric Bruno
     public void saveFileRev() {
         System.out.println("saving file from VFile");
         boolean success = false;
@@ -140,4 +141,5 @@ public class VFile {
             }
         }
     }
+    //~~~~~
 }
