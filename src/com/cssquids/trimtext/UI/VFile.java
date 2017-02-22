@@ -8,9 +8,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.*;
 
 /**
  * Created by Arthur on 2/17/2017.
@@ -36,6 +34,42 @@ public class VFile {
         tab.setContent(parentEditor.getRoot());
         State.x.tabs.add(tab);
         State.x.setCurrentEditor(parentEditor);
+    }
+
+    public void load() {
+        FileChooser f = new FileChooser();
+        File file = f.showOpenDialog(null);
+        if ( f != null ) {
+            // Read the file, and set its contents within the editor
+            String fileName = file.getAbsolutePath();
+            StringBuffer buffer = new StringBuffer();
+            try (FileInputStream fis = new FileInputStream(file);
+                 BufferedInputStream bis = new BufferedInputStream(fis) ) {
+                while ( bis.available() > 0 ) {
+                    buffer.append((char)bis.read());
+                }
+            }
+            catch ( Exception e ) {
+                System.out.println("Failed to load file");
+                e.printStackTrace();
+            }
+
+            // Create the editor with this content and store it
+            Tab tab = new Tab();
+            parentEditor = new Editor(tab, this);
+            parentEditor.setText( buffer.toString() );
+            parentEditor.filename = fileName;
+            State.x.getEditors().add(parentEditor);
+
+            // Create a tab to house the new editor
+
+            tab.setText(file.getName());
+            tab.setContent(parentEditor.getRoot());
+            State.x.tabs.add(tab);
+
+            // Make sure the new tab is selected
+            State.x.setCurrentEditor(parentEditor);
+        }
     }
 
     public void saveFileRev() {
