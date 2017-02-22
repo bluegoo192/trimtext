@@ -34,7 +34,9 @@ public class FontStage extends Stage{
             }
         });
         initModality(Modality.APPLICATION_MODAL);
-        VBox dialogVbox = new VBox(20);
+        Text fontSizeTitle=new Text("Font Size");
+        VBox dialogVbox = new VBox((int)currentFont.getSize());
+        currentFontSize=(int)currentFont.getSize();
         MenuBar mb = new MenuBar();
         Menu fonts = new Menu("List of Fonts");
         for (int i = 0; i < Font.getFamilies().size(); i++) {
@@ -46,8 +48,11 @@ public class FontStage extends Stage{
         mb.getMenus().add(fonts);
 
         Button applyButton = new Button("Apply");
-        applyButton.setOnAction(t->parent.setFont(Font.font(currentFontName,currentFontSize)));
-        dialogVbox.getChildren().addAll(mb, fontSize,applyButton);
+        applyButton.setOnAction(t->{
+            parent.setFont(Font.font(currentFontName,currentFontSize));
+            close();
+        });
+        dialogVbox.getChildren().addAll(mb, fontSizeTitle,fontSize,applyButton);
         Scene dialogScene = new Scene(dialogVbox, 300, 200);
         setScene(dialogScene);
         show();
