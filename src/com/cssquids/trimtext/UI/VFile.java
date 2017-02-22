@@ -53,7 +53,7 @@ public class VFile {
         State.x.setCurrentEditor(parentEditor);
     }
 
-    public void load() {
+    public VFile load() {
         FileChooser f = new FileChooser();
         file = f.showOpenDialog(null);
         if ( f != null ) {
@@ -73,7 +73,9 @@ public class VFile {
             content = buffer.toString();
 
             this.usesFile = true;
+            return this;
         }
+        return this;
     }
 
     public void saveFileRev() {

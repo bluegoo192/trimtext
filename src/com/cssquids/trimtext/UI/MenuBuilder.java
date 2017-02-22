@@ -42,8 +42,7 @@ public class MenuBuilder {
         fileMenu_OPEN.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent t) {
                 VFile n = new VFile();
-                n.load();
-                n.make();
+                n.load().make();
             }
         });
         MenuItem fileMenu_SAVE = new MenuItem("Save");
