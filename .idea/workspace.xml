@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d29c068-7373-43e0-9f62-fa3c164c36b7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main.class" afterPath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
     </list>
     <ignored path="TrimText.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,21 +48,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6229008">
+              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainScene.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainScene.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.740458">
-              <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="88" column="26" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2693#2694#0" expanded="true" />
@@ -179,8 +179,8 @@
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/WebBrowser.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Editor.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" />
       </list>
     </option>
   </component>
@@ -913,7 +913,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487789313832</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="changed Controller.run() to allow returning futures">
+      <created>1487791203838</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1487791203838</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -956,7 +962,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished basic state stuff" />
     <MESSAGE value="Created custom Scene extension" />
     <MESSAGE value="Added a bunch of stub classes" />
     <MESSAGE value="added basic backend thread pool" />
@@ -981,7 +986,8 @@
     <MESSAGE value="made editor extend TextArea for simplicity" />
     <MESSAGE value="fixed indicateFileModified() to avoid using getEditorForTextArea()" />
     <MESSAGE value="removed getEditorForTextArea()" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed getEditorForTextArea()" />
+    <MESSAGE value="changed Controller.run() to allow returning futures" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed Controller.run() to allow returning futures" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1409,23 +1415,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.740458">
-          <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="26" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2693#2694#0" expanded="true" />
             <element signature="e#2749#2750#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6229008">
+          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
