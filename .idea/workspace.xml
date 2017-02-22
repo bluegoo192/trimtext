@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d29c068-7373-43e0-9f62-fa3c164c36b7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main.class" afterPath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
     </list>
     <ignored path="TrimText.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,13 +36,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7984733">
-              <caret line="115" column="35" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="72" selection-start-line="46" selection-start-column="72" selection-end-line="46" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainScene.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.740458">
+              <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2693#2694#0" expanded="true" />
+                <element signature="e#2749#2750#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,9 +171,7 @@
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/Internal/Tabs.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/TabPane.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Tab.java" />
-        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/Store.kt" />
-        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.kt" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MenuBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java" />
@@ -157,12 +179,14 @@
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/WebBrowser.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Editor.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="97" />
-    <option name="y" value="3" />
+    <option name="x" value="134" />
+    <option name="y" value="5" />
     <option name="width" value="1787" />
     <option name="height" value="967" />
   </component>
@@ -883,11 +907,17 @@
       <option name="project" value="LOCAL" />
       <updated>1487789034892</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="removed getEditorForTextArea()">
+      <created>1487789313832</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1487789313832</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="97" y="3" width="1787" height="967" extended-state="0" />
+    <frame x="134" y="5" width="1787" height="967" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -926,7 +956,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Started adding state stuff" />
     <MESSAGE value="Finished basic state stuff" />
     <MESSAGE value="Created custom Scene extension" />
     <MESSAGE value="Added a bunch of stub classes" />
@@ -951,7 +980,8 @@
     <MESSAGE value="properly cited tutorial code to avoid plagiarism" />
     <MESSAGE value="made editor extend TextArea for simplicity" />
     <MESSAGE value="fixed indicateFileModified() to avoid using getEditorForTextArea()" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed indicateFileModified() to avoid using getEditorForTextArea()" />
+    <MESSAGE value="removed getEditorForTextArea()" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed getEditorForTextArea()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1280,16 +1310,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#39#162#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Statex/Internal/Tabs.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1305,16 +1325,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4473282">
-          <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1391,10 +1401,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7984733">
-          <caret line="115" column="35" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="72" selection-start-line="46" selection-start-column="72" selection-end-line="46" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MainScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.740458">
+          <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2693#2694#0" expanded="true" />
+            <element signature="e#2749#2750#0" expanded="true" />
           </folding>
         </state>
       </provider>

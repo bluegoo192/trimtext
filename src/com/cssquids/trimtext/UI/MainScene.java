@@ -8,6 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  * Created by Arthur on 2/14/2017.
@@ -56,13 +60,35 @@ public class MainScene extends Scene {
         });
     }
 
+    public Integer controllerTest(int x) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return x*x;
+    }
+
+    public void futureTest() {
+        Future<Integer> test = Controller.INSTANCE.run(new Function0<Integer>() {
+            @Override
+            public Integer invoke() {
+                return controllerTest(5);
+            }
+        });
+        System.out.println("future done? " + test.isDone());
+        try {
+            System.out.println(test.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void handleKeyPress(KeyEvent ke) {
         boolean modifier = false;
         String text = ke.getText();
-        /*Controller.INSTANCE.run(() -> {
-            System.out.println(State.x.getCurrentEditor());
-            return Unit.INSTANCE;
-        });*/
         KeyCode code = ke.getCode();
         if ( ke.isControlDown() || ke.isMetaDown() ) {
             modifier = true;
