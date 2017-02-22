@@ -85,8 +85,8 @@ public class Main extends Application {
 
         // Get current tab, add an "*" to its name to indicate modified
         Tab selectedTab = State.x.tabs.getCurrentTab();
-        TextArea area = (TextArea)selectedTab.getContent();
-        State.x.setCurrentEditor();
+        Editor ed = (Editor) selectedTab.getContent();
+        State.x.setCurrentEditor(ed);
         String modName = selectedTab.getText();
         if ( ! modName.endsWith("*") ) {
             modName += "*";
