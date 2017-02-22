@@ -17,12 +17,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
-/**
- *
- * @author bluegoo192
- */
 public class WebBrowser implements Content {
-    private static final String DEFAULT_URL = "http://www.yahoo.com";
+    private static final String DEFAULT_URL = "http://www.google.com";
     VBox root = null;
     WebView webView = null;
 
@@ -52,7 +48,7 @@ public class WebBrowser implements Content {
         //Node c = State.x.tabs.getCurrentTab().getContent();
         //if (c instanceof Editor) c = (Editor) c
 
-
+        //Code up to ~~~~~ written by Eric Bruno
         final TextField locationField = new TextField(DEFAULT_URL);
         webEngine.locationProperty().addListener(new ChangeListener<String>() {
             @Override public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -83,6 +79,8 @@ public class WebBrowser implements Content {
 
         root.getChildren().add(vBox);
     }
+
+    //~~~~~
 
     public void make() {
         Tab tab = new Tab();
