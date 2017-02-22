@@ -11,6 +11,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.text.Font;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
@@ -75,7 +76,21 @@ public class Main extends Application {
         stage.show();
         //~~~~~
     }
-
+    public void changeFont(){
+        System.out.println("Font changed");
+        SingleSelectionModel<Tab> selectionModel = State.x.tabs.getTabPane().getSelectionModel();
+        Tab selectedTab = selectionModel.getSelectedItem();
+        TextArea area = (TextArea)selectedTab.getContent();
+        System.out.println(Font.getFamilies());
+        final FontStage dialog = new FontStage(this,area.getFont());
+    }
+    public void setFont(Font font){
+        System.out.println("Font set");
+        SingleSelectionModel<Tab> selectionModel = State.x.tabs.getTabPane().getSelectionModel();
+        Tab selectedTab = selectionModel.getSelectedItem();
+        TextArea area = (TextArea)selectedTab.getContent();
+        area.setFont(font);
+    }
     //Code up to ~~~~~ written by Eric Bruno
     //(well, basically.  we made some minor changes)
     public void indicateFileModified() {

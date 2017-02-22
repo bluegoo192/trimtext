@@ -76,7 +76,10 @@ public class MenuBuilder {
                 browser.make();
             }
         });
-        viewMenu.getItems().addAll(viewMenu_WEB);
+        MenuItem viewMenu_COLOR = new MenuItem("Color");
+        MenuItem viewMenu_FONT = new MenuItem("Font");
+        viewMenu_FONT.setOnAction(t->parent.changeFont());
+        viewMenu.getItems().addAll(viewMenu_WEB,viewMenu_COLOR,viewMenu_FONT);
     }
 
     public MenuBar make() {
