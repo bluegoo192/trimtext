@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="trimtext" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.ear"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-32.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.kotlinjavaruntime.classpath">
+    <pathelement location="${basedir}/lib/kotlin-reflect.jar"/>
+    <pathelement location="${basedir}/lib/kotlin-runtime.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module TrimText -->
+  
+  <dirname property="module.trimtext.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.trimtext" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.trimtext" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.trimtext" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.trimtext" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="trimtext.output.dir" value="${module.trimtext.basedir}/out/production/TrimText"/>
+  <property name="trimtext.testoutput.dir" value="${module.trimtext.basedir}/out/test/TrimText"/>
+  
+  <path id="trimtext.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="trimtext.module.production.classpath">
+    <path refid="${module.jdk.classpath.trimtext}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+  </path>
+  
+  <path id="trimtext.runtime.production.module.classpath">
+    <pathelement location="${trimtext.output.dir}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+  </path>
+  
+  <path id="trimtext.module.classpath">
+    <path refid="${module.jdk.classpath.trimtext}"/>
+    <pathelement location="${trimtext.output.dir}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+  </path>
+  
+  <path id="trimtext.runtime.module.classpath">
+    <pathelement location="${trimtext.testoutput.dir}"/>
+    <pathelement location="${trimtext.output.dir}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.trimtext">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.trimtext">
+    <patternset refid="excluded.from.module.trimtext"/>
+  </patternset>
+  
+  <path id="trimtext.module.sourcepath">
+    <dirset dir="${module.trimtext.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.trimtext" depends="compile.module.trimtext.production,compile.module.trimtext.tests" description="Compile module TrimText"/>
+  
+  <target name="compile.module.trimtext.production" depends="register.custom.compilers" description="Compile module TrimText; production classes">
+    <mkdir dir="${trimtext.output.dir}"/>
+    <javac2 destdir="${trimtext.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.trimtext}/javac">
+      <compilerarg line="${compiler.args.trimtext}"/>
+      <bootclasspath refid="trimtext.module.bootclasspath"/>
+      <classpath refid="trimtext.module.production.classpath"/>
+      <src refid="trimtext.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.trimtext"/>
+    </javac2>
+    
+    <copy todir="${trimtext.output.dir}">
+      <fileset dir="${module.trimtext.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.trimtext.tests" depends="register.custom.compilers,compile.module.trimtext.production" description="compile module TrimText; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.trimtext" description="cleanup module">
+    <delete dir="${trimtext.output.dir}"/>
+    <delete dir="${trimtext.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.trimtext" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.trimtext" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.trimtext:jar" value="${basedir}/out/artifacts/TrimText_jar"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.TrimText.jar" value="${artifacts.temp.dir}/TrimText.jar"/>
+  </target>
+  
+  <target name="artifact.trimtext:jar" depends="init.artifacts, compile.module.trimtext" description="Build &#39;TrimText:jar&#39; artifact">
+    <property name="artifact.temp.output.trimtext:jar" value="${artifacts.temp.dir}/TrimText_jar"/>
+    <mkdir dir="${artifact.temp.output.trimtext:jar}"/>
+    <jar destfile="${temp.jar.path.TrimText.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${trimtext.output.dir}"/>
+      <zipfileset src="${basedir}/lib/kotlin-runtime.jar"/>
+      <zipfileset src="${basedir}/lib/kotlin-reflect.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.TrimText.jar}" tofile="${artifact.temp.output.trimtext:jar}/TrimText.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.trimtext:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.trimtext:jar}"/>
+    <copy todir="${artifact.output.trimtext:jar}">
+      <fileset dir="${artifact.temp.output.trimtext:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

@@ -1,9 +1,7 @@
 package com.cssquids.trimtext.UI;
 
-import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Main;
 import com.cssquids.trimtext.Statex.State;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;

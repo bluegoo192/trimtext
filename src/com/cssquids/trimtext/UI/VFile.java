@@ -1,11 +1,12 @@
 package com.cssquids.trimtext.UI;
 
+import com.cssquids.trimtext.*;
+//import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Backend.FileBackend;
 import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Statex.State;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
-import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 
 import java.io.*;

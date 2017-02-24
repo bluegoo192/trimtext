@@ -1,13 +1,5 @@
 package com.cssquids.trimtext.UI;
 
-import com.cssquids.trimtext.Statex.State;
-import com.cssquids.trimtext.UI.Content;
-import com.sun.javafx.geom.BaseBounds;
-import com.sun.javafx.geom.transform.BaseTransform;
-import com.sun.javafx.jmx.MXNodeAlgorithm;
-import com.sun.javafx.jmx.MXNodeAlgorithmContext;
-import com.sun.javafx.sg.prism.NGNode;
-import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 

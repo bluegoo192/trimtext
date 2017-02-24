@@ -2,8 +2,7 @@ package com.cssquids.trimtext;/**
  * Created by Arthur on 2/8/2017.
  */
 
-import com.cssquids.trimtext.Backend.Controller;
-import com.cssquids.trimtext.Statex.State;
+import com.cssquids.trimtext.Statex.*;
 import com.cssquids.trimtext.UI.*;
 import com.cssquids.trimtext.UI.MenuBuilder;
 import javafx.application.Application;
@@ -113,7 +112,7 @@ public class Main extends Application {
     public void stop() {
         // Go through all open files and save, then exit
         Iterator<Tab> iter = State.x.tabs.getTabs().iterator();
-        Controller.INSTANCE.stop();
+        //Controller.INSTANCE.stop();
         while ( iter.hasNext() ) {
             try {
                 // Each file is saved by making each tab active then saving

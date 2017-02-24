@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TrimText:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TrimText_jar</output-path>
+    <root id="archive" name="TrimText.jar">
+      <element id="module-output" name="TrimText" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/kotlin-runtime.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/kotlin-reflect.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

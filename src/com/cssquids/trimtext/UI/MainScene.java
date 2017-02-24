@@ -1,17 +1,11 @@
 package com.cssquids.trimtext.UI;
 
-import com.cssquids.trimtext.Backend.Controller;
 import com.cssquids.trimtext.Statex.State;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
-
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
 /**
  * Created by Arthur on 2/14/2017.
@@ -69,7 +63,7 @@ public class MainScene extends Scene {
         return x*x;
     }
 
-    public void futureTest() {
+    /*public void futureTest() {
         Future<Integer> test = Controller.INSTANCE.run(new Function0<Integer>() {
             @Override
             public Integer invoke() {
@@ -84,7 +78,7 @@ public class MainScene extends Scene {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     private void handleKeyPress(KeyEvent ke) {
         boolean modifier = false;

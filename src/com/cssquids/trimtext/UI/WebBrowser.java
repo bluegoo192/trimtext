@@ -1,7 +1,7 @@
 package com.cssquids.trimtext.UI;
 
 import com.cssquids.trimtext.Configurables.LabelsContainer;
-import com.cssquids.trimtext.Statex.State;
+import com.cssquids.trimtext.Statex.*;
 import com.cssquids.trimtext.UI.Content;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
