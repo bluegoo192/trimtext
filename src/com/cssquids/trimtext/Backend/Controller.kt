@@ -27,9 +27,9 @@ object Controller {
         executor.submit{ callback(task()) }
     }
 
-    fun <V> run(task:() -> V, placeholder: V, callback:(V) -> Unit): V {
+    fun <V> run(task:() -> V, placeholder: V, callback:(V) -> Unit) {
         executor.submit{ callback(task()) }
-        return placeholder
+        callback(placeholder)
     }
 
     fun java_run(f:() -> Unit) {
