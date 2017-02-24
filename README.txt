@@ -1,4 +1,5 @@
 TrimText
+A fast, extensible text editor for programmers on all platforms
 
 1. Instructions on building and running TrimText.
     Required Libraries:
