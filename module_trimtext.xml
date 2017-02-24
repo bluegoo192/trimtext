@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_trimtext" default="compile.module.trimtext">
+  <dirname property="module.trimtext.basedir" file="${ant.file.module_trimtext}"/>
+  
+  <property name="module.jdk.home.trimtext" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.trimtext" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.trimtext" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.trimtext" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="trimtext.output.dir" value="${module.trimtext.basedir}/out/production/TrimText"/>
+  <property name="trimtext.testoutput.dir" value="${module.trimtext.basedir}/out/test/TrimText"/>
+  
+  <path id="trimtext.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="trimtext.module.production.classpath">
+    <path refid="${module.jdk.classpath.trimtext}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+  </path>
+  
+  <path id="trimtext.runtime.production.module.classpath">
+    <pathelement location="${trimtext.output.dir}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+  </path>
+  
+  <path id="trimtext.module.classpath">
+    <path refid="${module.jdk.classpath.trimtext}"/>
+    <pathelement location="${trimtext.output.dir}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+  </path>
+  
+  <path id="trimtext.runtime.module.classpath">
+    <pathelement location="${trimtext.testoutput.dir}"/>
+    <pathelement location="${trimtext.output.dir}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.trimtext">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.trimtext">
+    <patternset refid="excluded.from.module.trimtext"/>
+  </patternset>
+  
+  <path id="trimtext.module.sourcepath">
+    <dirset dir="${module.trimtext.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.trimtext" depends="compile.module.trimtext.production,compile.module.trimtext.tests" description="Compile module TrimText"/>
+  
+  <target name="compile.module.trimtext.production" description="Compile module TrimText; production classes">
+    <mkdir dir="${trimtext.output.dir}"/>
+    <javac destdir="${trimtext.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.trimtext}/javac">
+      <compilerarg line="${compiler.args.trimtext}"/>
+      <bootclasspath refid="trimtext.module.bootclasspath"/>
+      <classpath refid="trimtext.module.production.classpath"/>
+      <src refid="trimtext.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.trimtext"/>
+    </javac>
+    
+    <copy todir="${trimtext.output.dir}">
+      <fileset dir="${module.trimtext.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.trimtext.tests" depends="compile.module.trimtext.production" description="compile module TrimText; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.trimtext" description="cleanup module">
+    <delete dir="${trimtext.output.dir}"/>
+    <delete dir="${trimtext.testoutput.dir}"/>
+  </target>
+</project>
