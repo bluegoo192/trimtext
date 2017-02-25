@@ -2,8 +2,9 @@ TrimText
 A fast, extensible text editor for programmers on all platforms
 
 1. Instructions on building and running TrimText.
-    Download IntelliJ and install to desired location. Download GitHub repo from this github and open it with IntelliJ. Once the file is o     in IntelliJ go to "File" and then "Project Structure". Once in Project Structure make sure the Project SDK has a valid module (we used 1.8 but anything should work) and for Project Langauge level set it to "8 - Lambdas, type annotations etc". Once these settings are in place hit "Build" and "Build Project" and then "Run" and "Run 'Main'" to run the project. This should bring it up.
-    Required Libraries: JavaFX, Kotlin
+    From the base TrimText directory, run 'ant all' to compile and build.  If you run into issues, make sure that you have javac2 installed and that your Java path and environment variables are properly set up.  Alternately, you can build with the IntelliJ IDE.
+    (Alternate instructions) Download IntelliJ and install to desired location. Download GitHub repo from this github(https://github.com/bluegoo192/trimtext.git) and open it with IntelliJ. Once the file is open in IntelliJ go to "File" and then "Project Structure". Once in Project Structure make sure the Project SDK has a valid module (we used 1.8 but anything should work) and for Project Langauge level set it to "8 - Lambdas, type annotations etc". Once these settings are in place hit "Build" and "Build Project" and then "Run" and "Run 'Main'" to run the project. This should bring it up.
+    Required Libraries: JavaFX, Kotlin, javac2
     Required Operating System: N/A
 
 2. No external data files are required for this project. TrimText can open (as far as we know) any file type out there. Just navigate to whatever file you wish to open and it will open it. Files to be opened do not need to be placed in the same location as the TrimText source code or runnable.
