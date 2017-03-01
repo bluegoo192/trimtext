@@ -29,7 +29,7 @@ public class Editor extends TextArea implements Content {
     }
 
     public void editFont() {
-        FontStage dialog = new FontStage(State.x.getApp(), this.getFont());
+        FontStage dialog = new FontStage(this.getFont());
     }
 
     public void save() { content.saveFileRev(); }
