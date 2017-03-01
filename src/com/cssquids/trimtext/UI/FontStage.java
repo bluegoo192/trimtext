@@ -1,6 +1,7 @@
 package com.cssquids.trimtext.UI;
 
 import com.cssquids.trimtext.Main;
+import com.cssquids.trimtext.Statex.State;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
@@ -15,14 +16,13 @@ import javafx.stage.Stage;
  * Created by henry on 2/22/2017.
  */
 public class FontStage extends Stage{
-    Main parent;
+
     String currentFontName=null;
     int currentFontSize;
 
-    public FontStage(Main app, Font currentFont) {
+    public FontStage(Font currentFont) {
         super();
-        parent=app;
-        initOwner(parent.getStage());
+        initOwner(State.x.getApp().getStage());
         TextField fontSize=new TextField(String.valueOf((int)currentFont.getSize()));
         fontSize.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -49,7 +49,7 @@ public class FontStage extends Stage{
 
         Button applyButton = new Button("Apply");
         applyButton.setOnAction(t->{
-            parent.setFont(Font.font(currentFontName,currentFontSize));
+            State.x.getCurrentEditor().setFont(Font.font(currentFontName,currentFontSize));
             close();
         });
         dialogVbox.getChildren().addAll(mb, fontSizeTitle,fontSize,applyButton);

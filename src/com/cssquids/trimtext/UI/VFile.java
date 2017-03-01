@@ -1,5 +1,6 @@
 package com.cssquids.trimtext.UI;
 
+import com.cssquids.trimtext.Backend.Controller;
 import com.cssquids.trimtext.Backend.FileBackend;
 import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Statex.State;
@@ -7,6 +8,7 @@ import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
+import kotlin.Unit;
 
 import java.io.*;
 
@@ -60,17 +62,24 @@ public class VFile {
             // Read the file, and set its contents within the editor
             fileName = file.getAbsolutePath();
             StringBuffer buffer = new StringBuffer();
-            try (FileInputStream fis = new FileInputStream(file);
-                 BufferedInputStream bis = new BufferedInputStream(fis) ) {
-                while ( bis.available() > 0 ) {
-                    buffer.append((char)bis.read());
+            content = "Loading...";
+
+            //load file contents in separate thread
+            Controller.INSTANCE.run(() -> {
+                try (FileInputStream fis = new FileInputStream(file);
+                     BufferedInputStream bis = new BufferedInputStream(fis) ) {
+                    while ( bis.available() > 0 ) {
+                        buffer.append((char)bis.read());
+                    }
                 }
-            }
-            catch ( Exception e ) {
-                System.out.println("Failed to load file");
-                e.printStackTrace();
-            }
-            content = buffer.toString();
+                catch ( Exception e ) {
+                    System.out.println("Failed to load file");
+                    e.printStackTrace();
+                }
+                this.setContent(buffer.toString());
+                return Unit.INSTANCE;
+            });
+
 
             this.usesFile = true;
             return this;
@@ -142,4 +151,9 @@ public class VFile {
         }
     }
     //~~~~~
+
+    public void setContent(String s) {
+        this.content = s;
+        parentEditor.setText(content);
+    }
 }
