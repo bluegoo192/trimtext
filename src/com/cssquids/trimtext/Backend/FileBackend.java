@@ -1,5 +1,6 @@
 package com.cssquids.trimtext.Backend;
 
+import com.cssquids.trimtext.Features.SyntaxProcessor;
 import com.cssquids.trimtext.UI.VFile;
 import javafx.stage.FileChooser;
 import kotlin.Unit;
@@ -19,7 +20,9 @@ import java.util.Vector;
 public class FileBackend {
 
     private VFile mine;
-    private Vector<String> fullContent;//stores the FULL content of the file(or at least abstracts getting it)
+    private Vector<String> fullContent = new Vector<>();//stores the FULL content of the file(or at least abstracts getting it)
+    final private int charThreshold = 50000;
+    private int currentBlock;
 
     public FileBackend(VFile t) { mine = t; }
 
@@ -31,32 +34,53 @@ public class FileBackend {
 
             try (FileInputStream fis = new FileInputStream(mine.getFile());
                  BufferedInputStream bis = new BufferedInputStream(fis) ) {
-                while ( bis.available() > 0 && iterations < 100000) {
+                System.out.println("made it this far...");
+                while ( (bis.available() > 0) && (iterations < charThreshold)) {
                     iterations++;
                     buffer.append((char)bis.read());
                 }
                 fullContent.add(buffer.toString());
-                mine.setContent(fullContent.get(0));//set content to be the first 100k characters
+                loadBlock(0);
+                System.out.println("Finished first set at "+ iterations + " iterations");
 
                 while (bis.available() > 0) {
                     iterations = 0;
                     buffer = new StringBuffer();
-                    while (bis.available() > 0 && iterations < 100000) {
+                    while ((bis.available() > 0) && (iterations < charThreshold)) {
                         iterations++;
                         buffer.append((char) bis.read());
                     }
                     fullContent.add(buffer.toString());
+                    System.out.println("Finished another set at "+iterations+ " iterations");
                 }
             }
             catch ( Exception e ) {
                 System.out.println("Failed to load file");
                 e.printStackTrace();
             }
-            mine.setContent(buffer.toString());
-            System.out.println("Finished at "+iterations+" iterations");
             return Unit.INSTANCE;
         });
     }
+
+
+    private void loadBlock(int i) {
+        currentBlock = i;
+        mine.setContent(fullContent.get(i));
+    }
+
+    //if next is true, loads the next block
+    //if next is false, loads the previous block
+    private void loadSecondaryBlock(boolean next) {
+        int step = (next) ? 1 : -2;
+        if ((currentBlock + step) < 0) return;//return early if we are already at the beginning
+        Controller.INSTANCE.run(() -> {
+            String content = fullContent.get(currentBlock) + fullContent.get(currentBlock + step);
+            mine.setContent(content);
+            return Unit.INSTANCE;
+        });
+    }
+
+
 
 
 }
