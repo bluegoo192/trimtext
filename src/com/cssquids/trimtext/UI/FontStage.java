@@ -1,6 +1,7 @@
 package com.cssquids.trimtext.UI;
 
 import com.cssquids.trimtext.Main;
+import com.cssquids.trimtext.Statex.State;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
@@ -49,7 +50,7 @@ public class FontStage extends Stage{
 
         Button applyButton = new Button("Apply");
         applyButton.setOnAction(t->{
-            parent.setFont(Font.font(currentFontName,currentFontSize));
+            State.x.getCurrentEditor().setFont(Font.font(currentFontName,currentFontSize));
             close();
         });
         dialogVbox.getChildren().addAll(mb, fontSizeTitle,fontSize,applyButton);

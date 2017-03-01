@@ -86,7 +86,7 @@ public class MenuBuilder {
                 settings.make();
             }
         });
-        viewMenu_FONT.setOnAction(t->parent.changeFont());
+        viewMenu_FONT.setOnAction(t->State.x.getCurrentEditor().editFont());
         viewMenu.getItems().addAll(viewMenu_WEB,viewMenu_COLOR,viewMenu_FONT);
     }
 

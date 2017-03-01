@@ -28,6 +28,10 @@ public class Editor extends TextArea implements Content {
         parentTab = t;
     }
 
+    public void editFont() {
+        FontStage dialog = new FontStage(State.x.getApp(), this.getFont());
+    }
+
     public void save() { content.saveFileRev(); }
 
     public Tab getParentTab() { return parentTab; }
