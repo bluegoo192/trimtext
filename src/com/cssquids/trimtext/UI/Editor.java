@@ -18,6 +18,20 @@ public class Editor extends TextArea implements Content {
     public VFile content;
     public String filename = null;
 
+    public boolean isClosed() {
+        return closed;
+    }
+
+    public void setClosed(boolean closed) {
+        this.closed = closed;
+    }
+
+    public void close() {
+        this.setClosed(true);
+    }
+
+    private boolean closed = false;
+
     public Editor(Tab t) {
         content = new VFile(this);
         parentTab = t;

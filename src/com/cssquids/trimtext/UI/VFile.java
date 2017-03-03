@@ -56,6 +56,9 @@ public class VFile {
 
     public void make() {
         Tab tab = new Tab();
+        tab.setOnClosed(t -> {
+            parentEditor.close();
+        });
         parentEditor = new Editor(tab, this);
 
         if (this.usesFile) {
