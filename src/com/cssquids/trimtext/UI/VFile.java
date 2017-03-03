@@ -20,7 +20,12 @@ import java.io.*;
 public class VFile {
 
     FileBackend backend = null;
-    Editor parentEditor;
+
+    public Editor getParentEditor() {
+        return parentEditor;
+    }
+
+    private Editor parentEditor;
 
     public boolean usesFile = false;
 

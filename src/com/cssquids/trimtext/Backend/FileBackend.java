@@ -8,8 +8,10 @@ import kotlin.Unit;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.concurrent.Future;
 
 /**
  * Created by Arthur on 2/17/2017.
@@ -53,6 +55,7 @@ public class FileBackend {
                     }
                     fullContent.add(buffer.toString());
                     System.out.println("Finished another set at "+iterations+ " iterations");
+                    if (mine.getParentEditor().isClosed()) return Unit.INSTANCE; //check if this tab is closed. if it is, wrap up
                 }
             }
             catch ( Exception e ) {
