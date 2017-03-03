@@ -20,16 +20,39 @@ import java.io.*;
 public class VFile {
 
     FileBackend backend = null;
-    Editor parentEditor;
+
+    public Editor getParentEditor() {
+        return parentEditor;
+    }
+
+    private Editor parentEditor;
 
     public boolean usesFile = false;
 
     private String content = null;
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
     private String fileName = null;
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
     private File file = null;
 
     public VFile() {
-        backend = new FileBackend();
+        backend = new FileBackend(this);
     }
 
     public VFile(Editor editor) {
@@ -38,6 +61,9 @@ public class VFile {
 
     public void make() {
         Tab tab = new Tab();
+        tab.setOnClosed(t -> {
+            parentEditor.close();
+        });
         parentEditor = new Editor(tab, this);
 
         if (this.usesFile) {
@@ -61,24 +87,9 @@ public class VFile {
         if ( f != null ) {
             // Read the file, and set its contents within the editor
             fileName = file.getAbsolutePath();
-            StringBuffer buffer = new StringBuffer();
             content = "Loading...";
 
-            //load file contents in separate thread
-            Controller.INSTANCE.run(() -> {
-                try (FileInputStream fis = new FileInputStream(file);
-                     BufferedInputStream bis = new BufferedInputStream(fis) ) {
-                    while ( bis.available() > 0 ) {
-                        buffer.append((char)bis.read());
-                    }
-                }
-                catch ( Exception e ) {
-                    System.out.println("Failed to load file");
-                    e.printStackTrace();
-                }
-                this.setContent(buffer.toString());
-                return Unit.INSTANCE;
-            });
+            backend.loadFile(file);
 
 
             this.usesFile = true;
