@@ -65,6 +65,10 @@ public class VFile {
             parentEditor.close();
         });
         parentEditor = new Editor(tab, this);
+        System.out.println("REACHED");
+        parentEditor.setOnScroll(e -> {
+            System.out.println(e);
+        });
 
         if (this.usesFile) {
             parentEditor.setText( content );

@@ -44,7 +44,7 @@ public class FileBackend {
                 }
                 fullContent.add(buffer.toString());
                 loadBlock(0);
-                System.out.println("Finished first set at "+ iterations + " iterations");
+                //System.out.println("Finished first set at "+ iterations + " iterations");
 
                 while (bis.available() > 0) {
                     iterations = 0;
@@ -54,7 +54,7 @@ public class FileBackend {
                         buffer.append((char) bis.read());
                     }
                     fullContent.add(buffer.toString());
-                    System.out.println("Finished another set at "+iterations+ " iterations");
+                    //System.out.println("Finished another set at "+iterations+ " iterations");
                     if (mine.getParentEditor().isClosed()) return Unit.INSTANCE; //check if this tab is closed. if it is, wrap up
                 }
             }
