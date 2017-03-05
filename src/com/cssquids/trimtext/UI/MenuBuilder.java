@@ -86,8 +86,12 @@ public class MenuBuilder {
                 settings.make();
             }
         });
+        MenuItem viewMenu_WRAP = new MenuItem("Toggle text wrapping");
+        viewMenu_WRAP.setOnAction(t->{ State.x.getCurrentEditor().setWrapText(!State.x.getCurrentEditor().isWrapText());});
         viewMenu_FONT.setOnAction(t->State.x.getCurrentEditor().editFont());
-        viewMenu.getItems().addAll(viewMenu_WEB,viewMenu_COLOR,viewMenu_FONT);
+        viewMenu.getItems().addAll(viewMenu_WEB,viewMenu_COLOR,viewMenu_FONT, viewMenu_WRAP);
+
+
     }
 
     public MenuBar make() {
