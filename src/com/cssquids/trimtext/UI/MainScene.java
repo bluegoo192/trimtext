@@ -75,6 +75,7 @@ public class MainScene extends Scene {
 
     public Integer controllerTest(int x) {
         //Controller.INSTANCE.run(returnFive, 2, printInt);
+        //Controller.INSTANCE.run(() -> {return returnFive();},2,(i) -> {printInt(i);});
         return 0;
     }
 

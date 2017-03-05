@@ -78,8 +78,20 @@ public class MenuBuilder {
         });
         MenuItem viewMenu_COLOR = new MenuItem("Color");
         MenuItem viewMenu_FONT = new MenuItem("Font");
-        viewMenu_FONT.setOnAction(t->parent.changeFont());
-        viewMenu.getItems().addAll(viewMenu_WEB,viewMenu_COLOR,viewMenu_FONT);
+        MenuItem viewMenu_SETTINGS = new MenuItem("Settings");
+        viewMenu_SETTINGS.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Settings settings = new Settings();
+                settings.make();
+            }
+        });
+        MenuItem viewMenu_WRAP = new MenuItem("Toggle text wrapping");
+        viewMenu_WRAP.setOnAction(t->{ State.x.getCurrentEditor().setWrapText(!State.x.getCurrentEditor().isWrapText());});
+        viewMenu_FONT.setOnAction(t->State.x.getCurrentEditor().editFont());
+        viewMenu.getItems().addAll(viewMenu_WEB,viewMenu_COLOR,viewMenu_FONT, viewMenu_WRAP);
+
+
     }
 
     public MenuBar make() {

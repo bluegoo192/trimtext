@@ -1,5 +1,6 @@
 package com.cssquids.trimtext.UI;
 
+import com.cssquids.trimtext.Backend.Controller;
 import com.cssquids.trimtext.Backend.FileBackend;
 import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Statex.State;
@@ -7,6 +8,7 @@ import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
+import kotlin.Unit;
 
 import java.io.*;
 
@@ -18,16 +20,39 @@ import java.io.*;
 public class VFile {
 
     FileBackend backend = null;
-    Editor parentEditor;
+
+    public Editor getParentEditor() {
+        return parentEditor;
+    }
+
+    private Editor parentEditor;
 
     public boolean usesFile = false;
 
     private String content = null;
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
     private String fileName = null;
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
     private File file = null;
 
     public VFile() {
-        backend = new FileBackend();
+        backend = new FileBackend(this);
     }
 
     public VFile(Editor editor) {
@@ -36,7 +61,14 @@ public class VFile {
 
     public void make() {
         Tab tab = new Tab();
+        tab.setOnClosed(t -> {
+            parentEditor.close();
+        });
         parentEditor = new Editor(tab, this);
+        System.out.println("REACHED");
+        parentEditor.setOnScroll(e -> {
+            System.out.println(e);
+        });
 
         if (this.usesFile) {
             parentEditor.setText( content );
@@ -59,18 +91,10 @@ public class VFile {
         if ( f != null ) {
             // Read the file, and set its contents within the editor
             fileName = file.getAbsolutePath();
-            StringBuffer buffer = new StringBuffer();
-            try (FileInputStream fis = new FileInputStream(file);
-                 BufferedInputStream bis = new BufferedInputStream(fis) ) {
-                while ( bis.available() > 0 ) {
-                    buffer.append((char)bis.read());
-                }
-            }
-            catch ( Exception e ) {
-                System.out.println("Failed to load file");
-                e.printStackTrace();
-            }
-            content = buffer.toString();
+            content = "Loading...";
+
+            backend.loadFile(file);
+
 
             this.usesFile = true;
             return this;
@@ -142,4 +166,9 @@ public class VFile {
         }
     }
     //~~~~~
+
+    public void setContent(String s) {
+        this.content = s;
+        parentEditor.setText(content);
+    }
 }
