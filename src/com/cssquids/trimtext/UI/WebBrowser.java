@@ -34,10 +34,10 @@ public class WebBrowser implements Content {
         final WebEngine webEngine = webView.getEngine();
         webEngine.load(DEFAULT_URL);
         if (current != null) {
-            if (current.filename != null) {
+            if (current.filename == null) {
                 System.err.println("Current editor filename is null");
             }
-            if (current.filename.endsWith(".html")) {
+            else if (current.filename.endsWith(".html")) {
                 webEngine.loadContent(current.getText());
             } else {
                 System.err.println("You can only preview html files!");
