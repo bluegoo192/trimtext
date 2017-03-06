@@ -4,6 +4,7 @@ import com.cssquids.trimtext.Backend.Controller;
 import com.cssquids.trimtext.Backend.FileBackend;
 import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Statex.State;
+import javafx.beans.property.DoubleProperty;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
@@ -66,8 +67,10 @@ public class VFile {
         });
         parentEditor = new Editor(tab, this);
         System.out.println("REACHED");
-        parentEditor.setOnScroll(e -> {
-            System.out.println(e);
+
+        parentEditor.scrollTopProperty().addListener(e -> {
+            System.out.println(((DoubleProperty) e).getValue());
+  
         });
 
         if (this.usesFile) {

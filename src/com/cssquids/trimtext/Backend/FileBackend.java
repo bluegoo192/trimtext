@@ -66,7 +66,6 @@ public class FileBackend {
         });
     }
 
-
     private void loadBlock(int i) {
         currentBlock = i;
         mine.setContent(fullContent.get(i));
