@@ -70,7 +70,7 @@ public class VFile {
 
         parentEditor.scrollTopProperty().addListener(e -> {
             System.out.println(((DoubleProperty) e).getValue());
-  
+
         });
 
         if (this.usesFile) {

@@ -6,15 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d29c068-7373-43e0-9f62-fa3c164c36b7" name="Default" comment="made file loading cancel if tab is closed">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Languages/LanguageBuilder.java" />
+    <list default="true" id="1d29c068-7373-43e0-9f62-fa3c164c36b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Backend/FileBackend.class" afterPath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/Backend/FileBackend.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/UI/FontStage.class" afterPath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/UI/FontStage.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/UI/MenuBuilder.class" afterPath="$PROJECT_DIR$/out/production/TrimText/com/cssquids/trimtext/UI/MenuBuilder.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/FileBackend.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/FileBackend.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/Languages/Language.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/Languages/Language.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java" afterPath="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java" />
     </list>
     <ignored path="TrimText.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,23 +74,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VFile.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67014927">
-              <caret line="72" column="2" selection-start-line="72" selection-start-column="2" selection-end-line="72" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="119" column="37" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileBackend.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FileBackend.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/FileBackend.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.5074627">
+              <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2642#2643#0" expanded="true" />
+                <element signature="e#2682#2683#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -216,16 +215,16 @@
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/FontStage.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/Editor.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/MenuBuilder.java" />
-        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/FileBackend.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Languages/Language.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Languages/LanguageBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java" />
+        <option value="$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/FileBackend.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="88" />
-    <option name="y" value="2" />
+    <option name="x" value="90" />
+    <option name="y" value="6" />
     <option name="width" value="1787" />
     <option name="height" value="967" />
   </component>
@@ -1074,11 +1073,17 @@
       <option name="project" value="LOCAL" />
       <updated>1488527162229</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="added scrollTopProperty binding">
+      <created>1488759858285</created>
+      <option name="number" value="00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1488759858285</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="88" y="2" width="1787" height="967" extended-state="0" />
+    <frame x="90" y="6" width="1787" height="967" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1123,7 +1128,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="removed createNew method" />
     <MESSAGE value="moved save method to VFile" />
     <MESSAGE value="removed saveFileRev() from main" />
     <MESSAGE value="created VFile.load() method to remove choosing/loading files from Main" />
@@ -1148,7 +1152,8 @@
     <MESSAGE value="added block loading methods to FileBackend" />
     <MESSAGE value="added method that runs in Editor when the parent tab is closed" />
     <MESSAGE value="made file loading cancel if tab is closed" />
-    <option name="LAST_COMMIT_MESSAGE" value="made file loading cancel if tab is closed" />
+    <MESSAGE value="added scrollTopProperty binding" />
+    <option name="LAST_COMMIT_MESSAGE" value="added scrollTopProperty binding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1593,16 +1598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/FileBackend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/Controller.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28955224">
@@ -1623,9 +1618,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/UI/VFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67014927">
-          <caret line="72" column="2" selection-start-line="72" selection-start-column="2" selection-end-line="72" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="119" column="37" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cssquids/trimtext/Backend/FileBackend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5074627">
+          <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2642#2643#0" expanded="true" />
+            <element signature="e#2682#2683#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
