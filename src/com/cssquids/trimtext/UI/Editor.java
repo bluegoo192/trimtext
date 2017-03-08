@@ -46,7 +46,7 @@ public class Editor extends TextArea implements Content {
         FontStage dialog = new FontStage(this.getFont());
     }
 
-    public void save() { content.saveFileRev(); }
+    public void save() { content.saveFileRev();}
 
     public Tab getParentTab() { return parentTab; }
 

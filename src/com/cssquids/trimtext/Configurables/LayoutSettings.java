@@ -2,6 +2,7 @@ package com.cssquids.trimtext.Configurables;
 
 import com.cssquids.trimtext.UI.MenuBuilder;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 /**
  * Created by Arthur on 2/9/2017.
@@ -14,6 +15,7 @@ public class LayoutSettings extends FileSettings implements AutoUpdate {
     private double VBoxSpacing = 0;
     private int initialSceneWidth = 800;
     private int initialSceneHeight = 600;
+    private Color defaultColor = Color.web("0x000000");
     //com.cssquids.trimtext.UI.MenuBuilder menuBuilder = new MenuBuilder(this);
 
     //move this all into method
@@ -31,6 +33,8 @@ public class LayoutSettings extends FileSettings implements AutoUpdate {
 
     private LayoutSettings() {
     }
+
+    public Color getDefaultColor(){ return defaultColor; }
 
     public boolean reInit() {
         return false; //stub for now
