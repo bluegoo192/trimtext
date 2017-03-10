@@ -10,9 +10,10 @@ import com.sun.javafx.sg.prism.NGNode;
 import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
+import org.fxmisc.richtext.CodeArea;
 
 //Inspired by tutorial Editor class, but we added a lot more stuff
-public class Editor extends TextArea implements Content {
+public class Editor extends CodeArea implements Content {
     public boolean modified = false;
     private Tab parentTab = null;
     public VFile content;
@@ -42,6 +43,12 @@ public class Editor extends TextArea implements Content {
         parentTab = t;
     }
 
+    public synchronized void setText(String text) {
+        this.deleteText(0, this.getLength()-1);
+        this.appendText(text);
+        this.positionCaret(0);
+    }
+
     public void editFont() {
         FontStage dialog = new FontStage(this.getFont());
     }
@@ -58,7 +65,7 @@ public class Editor extends TextArea implements Content {
         this.modified = modified;
     }
 
-    public TextArea getRoot() {
+    public CodeArea getRoot() {
         return this;
     }
 

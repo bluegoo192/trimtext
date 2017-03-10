@@ -68,10 +68,10 @@ public class VFile {
         parentEditor = new Editor(tab, this);
         System.out.println("REACHED");
 
-        parentEditor.scrollTopProperty().addListener(e -> {
-            System.out.println(((DoubleProperty) e).getValue());
+        //parentEditor.scrollTopProperty().addListener(e -> {
+            //System.out.println(((DoubleProperty) e).getValue());
 
-        });
+        //});
 
         if (this.usesFile) {
             parentEditor.setText( content );

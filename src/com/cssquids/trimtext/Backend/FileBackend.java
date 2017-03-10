@@ -2,6 +2,7 @@ package com.cssquids.trimtext.Backend;
 
 import com.cssquids.trimtext.Features.SyntaxProcessor;
 import com.cssquids.trimtext.UI.VFile;
+import javafx.application.Platform;
 import javafx.stage.FileChooser;
 import kotlin.Unit;
 
@@ -35,7 +36,8 @@ public class FileBackend {
             int iterations = 0;
             StringBuffer buffer = new StringBuffer();
 
-            try (FileInputStream fis = new FileInputStream(mine.getFile());
+
+            try (FileInputStream fis = new FileInputStream(f);
                  BufferedInputStream bis = new BufferedInputStream(fis) ) {
                 System.out.println("made it this far...");
                 while ( (bis.available() > 0) && (iterations < charThreshold)) {
@@ -55,7 +57,10 @@ public class FileBackend {
                     }
                     fullContent.add(buffer.toString());
                     //System.out.println("Finished another set at "+iterations+ " iterations");
-                    if (mine.getParentEditor().isClosed()) return Unit.INSTANCE; //check if this tab is closed. if it is, wrap up
+                    synchronized (mine) {
+                        if (mine.getParentEditor().isClosed())
+                            return Unit.INSTANCE; //check if this tab is closed. if it is, wrap up
+                    }
                 }
             }
             catch ( Exception e ) {
@@ -71,13 +76,15 @@ public class FileBackend {
     }
 
     private void loadBlock(int i) {
-        currentBlock = i;
-        mine.setContent(fullContent.get(i));
+        Platform.runLater(() -> {
+            currentBlock = i;
+            mine.setContent(fullContent.get(i));
+        });
     }
 
     //if next is true, loads the next block
     //if next is false, loads the previous block
-    private void loadSecondaryBlock(boolean next) {
+    private synchronized void loadSecondaryBlock(boolean next) {
         int step = (next) ? 1 : -2;
         if ((currentBlock + step) < 0) return;//return early if we are already at the beginning
         Controller.INSTANCE.run(() -> {
