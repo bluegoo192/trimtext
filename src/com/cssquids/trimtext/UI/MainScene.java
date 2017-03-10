@@ -10,6 +10,7 @@ import javafx.scene.input.KeyEvent;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 
+import java.net.URL;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -22,6 +23,11 @@ public class MainScene extends Scene {
         //as of 2/16/2017, I have no idea what a Parent actually is
         //what I do know is: pass your VBox layout into here
         super(root, State.x.getSettings().getWidth(), State.x.getSettings().getHeight());//finish this
+        System.out.println(this.getStylesheets());
+        URL location = MainScene.class.getProtectionDomain().getCodeSource().getLocation();
+        System.out.println(location.getFile());
+        this.getStylesheets().add("com/cssquids/trimtext/style.css");
+
     }
 
     public void setUpKeyBindings() {
@@ -100,6 +106,9 @@ public class MainScene extends Scene {
                     code == KeyCode.ENTER ||
                     code == KeyCode.DELETE ) {
                 State.x.getApp().indicateFileModified();
+            }
+            else if ( code == KeyCode.SPACE) {
+                State.x.getCurrentEditor().content.processLastWord();
             }
             else if ( text != null && text.length() > 0 ) {
                 if ( ! modifier ) {

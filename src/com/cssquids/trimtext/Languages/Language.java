@@ -17,15 +17,27 @@ public class Language {
     public void addToMap(ArrayList<String> syntax, String color) {
         for (String s : syntax) {
             colorMap.put(s, color);
+            System.out.println("Added color #"+color+" to "+s);
         }
     }
 
-    public Text colorize(String text) {
+    public Text colorizeAll(String text) {
         String hexcode = "0x"+colorMap.get(text);
+        String[] words = text.split(" ");
         Color color = Color.web(hexcode);
+        StringBuilder colorized = new StringBuilder();
+        for (String s : words) {
+
+        }
         Text snippet = new Text(text);
         snippet.setFill(color);
         return snippet;
+    }
+
+    public String getColor(String text) {
+        String hex = colorMap.get(text);
+        if (hex == null) return "000000";//TODO: replace with real default color
+        return hex;
     }
 
 }

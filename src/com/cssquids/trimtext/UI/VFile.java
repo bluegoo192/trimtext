@@ -3,6 +3,8 @@ package com.cssquids.trimtext.UI;
 import com.cssquids.trimtext.Backend.Controller;
 import com.cssquids.trimtext.Backend.FileBackend;
 import com.cssquids.trimtext.Configurables.LabelsContainer;
+import com.cssquids.trimtext.Languages.Language;
+import com.cssquids.trimtext.Languages.LanguageBuilder;
 import com.cssquids.trimtext.Statex.State;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.control.SingleSelectionModel;
@@ -12,6 +14,7 @@ import javafx.stage.FileChooser;
 import kotlin.Unit;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Created by Arthur on 2/17/2017.
@@ -27,10 +30,10 @@ public class VFile {
     }
 
     private Editor parentEditor;
-
     public boolean usesFile = false;
-
     private String content = null;
+    private Language myLang;
+    private int wordPosCounter = 0; //tracks the position of the last space
 
     public String getFileName() {
         return fileName;
@@ -54,9 +57,12 @@ public class VFile {
 
     public VFile() {
         backend = new FileBackend(this);
+        LanguageBuilder b = new LanguageBuilder();
+        myLang = b.buildHardcodeJS("javascript");
     }
 
     public VFile(Editor editor) {
+        this();
         parentEditor = editor;
     }
 
@@ -86,6 +92,14 @@ public class VFile {
         tab.setContent(parentEditor.getRoot());
         State.x.tabs.add(tab);
         State.x.setCurrentEditor(parentEditor);
+    }
+
+    public void processLastWord() {
+        boolean plain = (myLang.getColor(parentEditor.getText(wordPosCounter, parentEditor.getCaretPosition()-1)).equals("000000"));
+        if (!plain) parentEditor.setStyleClass(wordPosCounter, parentEditor.getCaretPosition(), "special");
+        //System.out.println(parentEditor.getText(wordPosCounter, parentEditor.getCaretPosition()-1));
+        //System.out.println(myLang.getColor(parentEditor.getText(wordPosCounter, parentEditor.getCaretPosition()-1)));
+        wordPosCounter = parentEditor.getCaretPosition();
     }
 
     public VFile load() {
