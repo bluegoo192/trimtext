@@ -108,6 +108,7 @@ public class MainScene extends Scene {
                 State.x.getApp().indicateFileModified();
             }
             else if ( code == KeyCode.SPACE || code == KeyCode.ENTER) {
+                System.out.println("Processing...");
                 State.x.getCurrentEditor().content.processLastWord();
             }
             else if ( text != null && text.length() > 0 ) {

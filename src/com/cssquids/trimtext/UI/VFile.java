@@ -8,6 +8,7 @@ import com.cssquids.trimtext.Statex.State;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.stage.FileChooser;
+import org.fxmisc.richtext.LineNumberFactory;
 
 import java.io.*;
 
@@ -67,6 +68,7 @@ public class VFile {
             parentEditor.close();
         });
         parentEditor = new Editor(tab, this);
+        parentEditor.setParagraphGraphicFactory(LineNumberFactory.get(parentEditor));
         System.out.println("REACHED");
 
         //parentEditor.scrollTopProperty().addListener(e -> {
@@ -91,6 +93,7 @@ public class VFile {
 
     public void processLastWord() {
         String className = myLang.getClassName(parentEditor.getText(wordPosCounter, parentEditor.getCaretPosition()-1));
+        System.out.println("Processing " + parentEditor.getText(wordPosCounter, parentEditor.getCaretPosition()-1));
         if (className != null) {
             parentEditor.setStyleClass(wordPosCounter, parentEditor.getCaretPosition(), className);
         }
