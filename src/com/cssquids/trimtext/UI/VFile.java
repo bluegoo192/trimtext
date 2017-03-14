@@ -9,8 +9,14 @@ import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.stage.FileChooser;
 import org.fxmisc.richtext.LineNumberFactory;
+import org.fxmisc.richtext.StyleSpans;
+import org.fxmisc.richtext.StyleSpansBuilder;
 
 import java.io.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Arthur on 2/17/2017.
@@ -54,7 +60,7 @@ public class VFile {
     public VFile() {
         backend = new FileBackend(this);
         LanguageBuilder b = new LanguageBuilder();
-        myLang = b.buildHardcodeJS("javascript");
+        myLang = b.buildJava();
     }
 
     public VFile(Editor editor) {
@@ -69,7 +75,11 @@ public class VFile {
         });
         parentEditor = new Editor(tab, this);
         parentEditor.setParagraphGraphicFactory(LineNumberFactory.get(parentEditor));
-        System.out.println("REACHED");
+        parentEditor.richChanges()
+                .filter(ch -> !ch.getInserted().equals(ch.getRemoved())) // XXX
+                .subscribe(change -> {
+                    parentEditor.setStyleSpans(0, myLang.process(parentEditor.getText()));
+                });
 
         //parentEditor.scrollTopProperty().addListener(e -> {
             //System.out.println(((DoubleProperty) e).getValue());
@@ -89,15 +99,6 @@ public class VFile {
         tab.setContent(parentEditor.getRoot());
         State.x.tabs.add(tab);
         State.x.setCurrentEditor(parentEditor);
-    }
-
-    public void processLastWord() {
-        String className = myLang.getClassName(parentEditor.getText(wordPosCounter, parentEditor.getCaretPosition()-1));
-        System.out.println("Processing " + parentEditor.getText(wordPosCounter, parentEditor.getCaretPosition()-1));
-        if (className != null) {
-            parentEditor.setStyleClass(wordPosCounter, parentEditor.getCaretPosition(), className);
-        }
-        wordPosCounter = parentEditor.getCaretPosition();
     }
 
     public VFile load() {

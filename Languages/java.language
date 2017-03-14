@@ -1,56 +1,35 @@
 {
-"name":"Java",
-"syntax": {
-	"className":"purple",
-	"keywords": [
-		"abstract",
-		"continue",
-		"for",
-		"new" ,
-		"switch",
-		"assert",
-		"default",
-		"goto",
-		"package",
-		"synchronized",
-		"boolean",
-		"do",
-		"if",
-		"private",
-		"this",
-		"break",
-		"double",
-		"implements",
-		"protected",
-		"throw",
-		"byte",
-		"else",
-		"import",
-		"public",
-		"throws",
-		"case",
-		"enum",
-		"instanceof",
-		"return",
-		"transient",
-		"catch",
-		"extends",
-		"int",
-		"short",
-		"try",
-		"char",
-		"final",
-		"interface",
-		"static",
-		"void",
-		"class",
-		"finally",
-		"long",
-		"strictfp",
-		"volatile",
-		"const",
-		"float",
-		"native",
-		"super",
-		"while"
+    "name":"Java",
+    "keywords": {
+        "className":"purple",
+        "words": [
+            "abstract", "assert", "boolean", "break", "byte",
+            "case", "catch", "char", "class", "const",
+            "continue", "default", "do", "double", "else",
+            "enum", "extends", "final", "finally", "float",
+            "for", "goto", "if", "implements", "import",
+            "instanceof", "int", "interface", "long", "native",
+            "new", "package", "private", "protected", "public",
+            "return", "short", "static", "strictfp", "super",
+            "switch", "synchronized", "this", "throw", "throws",
+            "transient", "try", "void", "volatile", "while"
+        ]
+    },
+    "other": [
+        "parentheses": {
+            "name":"paren",
+            "pattern":"\\(|\\)",
+            "className":"paren"
+        },
+        "braces": {
+            "name":"brace",
+            "pattern":"\\{|\\}",
+            "className":"brace"
+        },
+        "brackets": {
+            "name":"bracket",
+            "pattern":"\\[|\\]",
+            "className":"bracket"
+        }
+    ]
 }

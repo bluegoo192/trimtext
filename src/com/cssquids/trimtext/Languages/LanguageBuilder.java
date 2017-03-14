@@ -10,35 +10,37 @@ import java.util.ArrayList;
 public class LanguageBuilder {
 
     public Language build(String language) {
-        Language lang = new Language();
+        //Language lang = new Language();
         String fileName = language + ".language";
         //Json
-        return lang;
+        return null;
     }
 
-    public Language buildHardcodeJS(String language) {
-        if (!language.equals("javascript")) {
-            if (language.equals("Javascript") || language.equals("js") || language.equals("JS")) {
-                System.err.println("Warning: please use 'javascript' (no quotes), rather than another spelling");
-            } else {
-                System.err.println("Warning: language does not appear to be javascript.  Pretending that it is...");
-            }
-        }
-        Language lang = new Language();
-        ArrayList<String> syntax = new ArrayList<>();
-        syntax.add("var");
-        syntax.add("class");
-        syntax.add("extends");
-        syntax.add("new");
-        syntax.add("function");
-        syntax.add("this");
-        syntax.add("if");
-        syntax.add("else");
-        lang.addToMap(syntax, "purple");
-        ArrayList<String> semiColonSyntax = new ArrayList<>();
-        semiColonSyntax.add(";");
-        lang.addToMap(semiColonSyntax, "grey");
-        return lang;
+    public Language buildJava() {
+        String[] KEYWORDS = new String[] {
+                "abstract", "assert", "boolean", "break", "byte",
+                "case", "catch", "char", "class", "const",
+                "continue", "default", "do", "double", "else",
+                "enum", "extends", "final", "finally", "float",
+                "for", "goto", "if", "implements", "import",
+                "instanceof", "int", "interface", "long", "native",
+                "new", "package", "private", "protected", "public",
+                "return", "short", "static", "strictfp", "super",
+                "switch", "synchronized", "this", "throw", "throws",
+                "transient", "try", "void", "volatile", "while"
+        };
+        String[] other = {
+                "(?<paren>\\(|\\))"
+                        , "(?<brace>\\{|\\})"
+                        , "(?<bracket>\\[|\\])"
+                        , "(?<semicolon>\\;)"
+                        , "(?<string>\"([^\"\\\\]|\\\\.)*\")"
+                        , "(?<comment>//[^\n" + "]*\" + \"|\" + \"/\\*(.|\\R)*?\\*/)"
+        };
+        String[] classes = {"keyword","brace","bracket","semicolon","string","comment"};
+        return new Language(KEYWORDS, other, classes);
     }
+
+
 
 }

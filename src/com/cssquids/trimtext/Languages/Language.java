@@ -2,40 +2,58 @@ package com.cssquids.trimtext.Languages;
 
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import org.fxmisc.richtext.StyleSpans;
+import org.fxmisc.richtext.StyleSpansBuilder;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Arthur on 3/1/2017.
  */
 public class Language {
 
-    HashMap<String, String> classMap = new HashMap<>();
+    private final String[] keywords;
+    private final String[] classes;
+    private final Pattern langRegex;
 
-    public void addToMap(ArrayList<String> syntax, String className) {
-        for (String s : syntax) {
-            classMap.put(s, className);
-            //System.out.println("Added color #"+className+" to "+s);
+    public Language(String[] keywords, String[] otherPatterns, String[] classes) {
+        this.keywords = keywords;
+        this.classes = classes;
+        String keywordPattern = "\\b(" + String.join("|", keywords) + ")\\b";
+        StringBuilder sb = new StringBuilder();
+        sb.append("(?<keyword>");
+        sb.append(keywordPattern);
+        sb.append(")");
+        for (String pattern : otherPatterns) {
+            sb.append("|");
+            sb.append(pattern);
         }
+        langRegex = Pattern.compile(sb.toString());
     }
 
-    public Text colorizeAll(String text) {
-        String hexcode = "0x"+classMap.get(text);
-        String[] words = text.split(" ");
-        Color color = Color.web(hexcode);
-        StringBuilder colorized = new StringBuilder();
-        for (String s : words) {
-
+    public StyleSpans<Collection<String>> process(String text) {
+        Matcher matcher = langRegex.matcher(text);
+        int lastKwEnd = 0;
+        StyleSpansBuilder<Collection<String>> spansBuilder
+                = new StyleSpansBuilder<>();
+        while(matcher.find()) {
+            String styleClass = null;
+            for (String c : classes) {
+                if (matcher.group(c) != null) {
+                    styleClass = c;
+                }
+            }
+            spansBuilder.add(Collections.emptyList(), matcher.start() - lastKwEnd);
+            spansBuilder.add(Collections.singleton(styleClass), matcher.end() - matcher.start());
+            lastKwEnd = matcher.end();
         }
-        Text snippet = new Text(text);
-        snippet.setFill(color);
-        return snippet;
-    }
-
-    public String getClassName(String text) {
-        String hex = classMap.get(text);
-        return hex;
+        spansBuilder.add(Collections.emptyList(), text.length() - lastKwEnd);
+        return spansBuilder.create();
     }
 }

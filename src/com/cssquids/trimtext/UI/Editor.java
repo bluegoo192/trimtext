@@ -33,11 +33,6 @@ public class Editor extends CodeArea implements Content {
 
     private boolean closed = false;
 
-    public Editor(Tab t) {
-        content = new VFile(this);
-        parentTab = t;
-    }
-
     public Editor(Tab t, VFile v) {
         content = v;
         parentTab = t;

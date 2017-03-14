@@ -20,7 +20,8 @@ public class SyntaxProcessor {
 
     public Language process(String s) {//return the language of the string
         this.text = s;
-        return new Language();//stub
+        return null;
+        //return new Language();//stub
     }
 
     public Text getNextSnippet() {
