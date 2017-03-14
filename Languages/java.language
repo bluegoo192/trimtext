@@ -1,7 +1,7 @@
 {
 "name":"Java",
 "syntax": {
-	"color":"555555",
+	"className":"purple",
 	"keywords": [
 		"abstract",
 		"continue",

@@ -107,7 +107,7 @@ public class MainScene extends Scene {
                     code == KeyCode.DELETE ) {
                 State.x.getApp().indicateFileModified();
             }
-            else if ( code == KeyCode.SPACE) {
+            else if ( code == KeyCode.SPACE || code == KeyCode.ENTER) {
                 State.x.getCurrentEditor().content.processLastWord();
             }
             else if ( text != null && text.length() > 0 ) {
