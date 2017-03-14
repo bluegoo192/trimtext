@@ -70,10 +70,12 @@ public class VFile {
 
     public void make() {
         Tab tab = new Tab();
+        //tab.getStyleClass().add("tab");
         tab.setOnClosed(t -> {
             parentEditor.close();
         });
         parentEditor = new Editor(tab, this);
+        parentEditor.getStyleClass().add("editor");
         parentEditor.setParagraphGraphicFactory(LineNumberFactory.get(parentEditor));
         parentEditor.richChanges()
                 .filter(ch -> !ch.getInserted().equals(ch.getRemoved())) // XXX
