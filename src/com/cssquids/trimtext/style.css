@@ -1,1 +1,5 @@
-.special { -fx-fill: red; }
+.red { -fx-fill: red; }
+
+.purple { -fx-fill: #a613c6; }
+
+.grey { -fx-fill: #969696; }

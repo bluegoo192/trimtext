@@ -12,17 +12,17 @@ import java.util.HashMap;
  */
 public class Language {
 
-    HashMap<String, String> colorMap = new HashMap<>();
+    HashMap<String, String> classMap = new HashMap<>();
 
-    public void addToMap(ArrayList<String> syntax, String color) {
+    public void addToMap(ArrayList<String> syntax, String className) {
         for (String s : syntax) {
-            colorMap.put(s, color);
-            System.out.println("Added color #"+color+" to "+s);
+            classMap.put(s, className);
+            //System.out.println("Added color #"+className+" to "+s);
         }
     }
 
     public Text colorizeAll(String text) {
-        String hexcode = "0x"+colorMap.get(text);
+        String hexcode = "0x"+classMap.get(text);
         String[] words = text.split(" ");
         Color color = Color.web(hexcode);
         StringBuilder colorized = new StringBuilder();
@@ -34,10 +34,8 @@ public class Language {
         return snippet;
     }
 
-    public String getColor(String text) {
-        String hex = colorMap.get(text);
-        if (hex == null) return "000000";//TODO: replace with real default color
+    public String getClassName(String text) {
+        String hex = classMap.get(text);
         return hex;
     }
-
 }

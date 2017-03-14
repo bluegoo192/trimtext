@@ -1,20 +1,15 @@
 package com.cssquids.trimtext.UI;
 
-import com.cssquids.trimtext.Backend.Controller;
 import com.cssquids.trimtext.Backend.FileBackend;
 import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Languages.Language;
 import com.cssquids.trimtext.Languages.LanguageBuilder;
 import com.cssquids.trimtext.Statex.State;
-import javafx.beans.property.DoubleProperty;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
-import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
-import kotlin.Unit;
 
 import java.io.*;
-import java.util.ArrayList;
 
 /**
  * Created by Arthur on 2/17/2017.
@@ -95,10 +90,10 @@ public class VFile {
     }
 
     public void processLastWord() {
-        boolean plain = (myLang.getColor(parentEditor.getText(wordPosCounter, parentEditor.getCaretPosition()-1)).equals("000000"));
-        if (!plain) parentEditor.setStyleClass(wordPosCounter, parentEditor.getCaretPosition(), "special");
-        //System.out.println(parentEditor.getText(wordPosCounter, parentEditor.getCaretPosition()-1));
-        //System.out.println(myLang.getColor(parentEditor.getText(wordPosCounter, parentEditor.getCaretPosition()-1)));
+        String className = myLang.getClassName(parentEditor.getText(wordPosCounter, parentEditor.getCaretPosition()-1));
+        if (className != null) {
+            parentEditor.setStyleClass(wordPosCounter, parentEditor.getCaretPosition(), className);
+        }
         wordPosCounter = parentEditor.getCaretPosition();
     }
 

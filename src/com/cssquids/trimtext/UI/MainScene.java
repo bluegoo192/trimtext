@@ -24,8 +24,8 @@ public class MainScene extends Scene {
         //what I do know is: pass your VBox layout into here
         super(root, State.x.getSettings().getWidth(), State.x.getSettings().getHeight());//finish this
         System.out.println(this.getStylesheets());
-        URL location = MainScene.class.getProtectionDomain().getCodeSource().getLocation();
-        System.out.println(location.getFile());
+        //URL location = MainScene.class.getProtectionDomain().getCodeSource().getLocation();
+        //System.out.println(location.getFile());
         this.getStylesheets().add("com/cssquids/trimtext/style.css");
 
     }

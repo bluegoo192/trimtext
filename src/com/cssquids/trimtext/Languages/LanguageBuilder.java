@@ -34,10 +34,10 @@ public class LanguageBuilder {
         syntax.add("this");
         syntax.add("if");
         syntax.add("else");
-        lang.addToMap(syntax, "0FA2D4");
+        lang.addToMap(syntax, "purple");
         ArrayList<String> semiColonSyntax = new ArrayList<>();
         semiColonSyntax.add(";");
-        lang.addToMap(semiColonSyntax, "B8B8B8");
+        lang.addToMap(semiColonSyntax, "grey");
         return lang;
     }
 
