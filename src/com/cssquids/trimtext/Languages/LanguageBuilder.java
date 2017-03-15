@@ -67,6 +67,7 @@ public class LanguageBuilder {
     //read the file and get us a JSON blob
     private JSONObject readJSON(String fileName) {
         String total;
+        System.out.println("Reading: Languages/"+fileName);
         try(BufferedReader br = new BufferedReader(new FileReader("Languages/"+fileName))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -79,7 +80,7 @@ public class LanguageBuilder {
             return new JSONObject(total);
         } catch(Exception e) {
             //e.printStackTrace();
-            System.err.println("Language file not found");
+            System.err.println("Language file not found: Languages/"+fileName);
             return null;
         }
     }
@@ -94,6 +95,7 @@ public class LanguageBuilder {
     }
 
     private Language buildJava() {
+        System.err.println("Something went wrong with syntax loading.  Using hardcoded Java settings");
         String[] KEYWORDS = new String[] {
                 "abstract", "assert", "boolean", "break", "byte",
                 "case", "catch", "char", "class", "const",

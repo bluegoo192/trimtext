@@ -1,0 +1,26 @@
+{
+    "name":"json",
+    "keywords": {
+        "className":"purple",
+        "words": [
+
+        ]
+    },
+    "other": [
+        {
+            "name":"quote",
+            "pattern":"\\"|\\'",
+            "className":"grey"
+        },
+        {
+            "name":"brace",
+            "pattern":"\\{|\\}",
+            "className":"brace"
+        },
+        {
+            "name":"bracket",
+            "pattern":"\\[|\\]",
+            "className":"bracket"
+        }
+    ]
+}
