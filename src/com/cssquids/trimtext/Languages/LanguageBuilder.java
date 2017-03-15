@@ -105,7 +105,12 @@ public class LanguageBuilder {
         }
     }
 
+    public Language build() {
+        return new Language();
+    }
+
     private Language buildJava() {
+        //return new Language();
         System.err.println("Something went wrong with syntax loading.  Using hardcoded Java settings");
         String[] KEYWORDS = new String[] {
                 "abstract", "assert", "boolean", "break", "byte",

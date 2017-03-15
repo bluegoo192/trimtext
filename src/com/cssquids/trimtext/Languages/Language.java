@@ -23,6 +23,15 @@ public class Language {
     private final Pattern langRegex;
 
     private final String name;
+    private boolean stub = false;
+
+    public Language() {
+        keywords = null;
+        classes = null;
+        langRegex = null;
+        name = null;
+        this.stub = true;
+    }
 
     public Language(String name, String[] keywords, String[] otherPatterns, String[] classes) {
         this.keywords = keywords;
@@ -41,6 +50,7 @@ public class Language {
     }
 
     public StyleSpans<Collection<String>> process(String text) {
+        if (stub) return null;
         Matcher matcher = langRegex.matcher(text);
         int lastKwEnd = 0;
         StyleSpansBuilder<Collection<String>> spansBuilder

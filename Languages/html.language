@@ -12,9 +12,9 @@
             "className":"caret"
         },
         {
-            "name":"string",
+            "name":"param",
             "pattern":"\"([^\"\\\\]|\\\\.)*\"",
-            "className":"string"
+            "className":"param"
         }
     ]
 }

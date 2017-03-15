@@ -74,6 +74,9 @@
 } .tag {
     -fx-fill: purple;
     -fx-font-weight: bold;
+} .param {
+    -fx-fill: green;
+    -fx-font-style: italic;
 }
 
 .paragraph-box:has-caret {
