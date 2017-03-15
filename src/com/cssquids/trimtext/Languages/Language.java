@@ -50,6 +50,7 @@ public class Language {
             for (String c : classes) {
                 if (matcher.group(c) != null) {
                     styleClass = c;
+                    //System.out.println("set to " + c + "  Language is "+name);
                 }
             }
             spansBuilder.add(Collections.emptyList(), matcher.start() - lastKwEnd);

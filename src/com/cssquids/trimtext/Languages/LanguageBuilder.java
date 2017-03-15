@@ -67,7 +67,18 @@ public class LanguageBuilder {
     //read the file and get us a JSON blob
     private JSONObject readJSON(String fileName) {
         String total;
-        System.out.println("Reading: Languages/"+fileName);
+        /*System.out.println("Reading: Languages/"+fileName);
+        try {
+            File dir = new File("Languages");
+            File[] filesList = dir.listFiles();
+            for (File file : filesList) {
+                if (file.isFile()) {
+                    System.out.println(file.getName());
+                }
+            }
+        } catch(Exception e) {
+            System.err.println("Couldn't find language folder? WTF????");
+        }*/
         try(BufferedReader br = new BufferedReader(new FileReader("Languages/"+fileName))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -79,7 +90,7 @@ public class LanguageBuilder {
             total = sb.toString();
             return new JSONObject(total);
         } catch(Exception e) {
-            //e.printStackTrace();
+            e.printStackTrace();
             System.err.println("Language file not found: Languages/"+fileName);
             return null;
         }

@@ -9,18 +9,23 @@
     "other": [
         {
             "name":"quote",
-            "pattern":"\\"|\\'",
+            "pattern":"\\\"|\\'",
             "className":"grey"
+        },
+        {
+            "name":"colon",
+            "pattern":"\\:",
+            "className":"colon"
         },
         {
             "name":"brace",
             "pattern":"\\{|\\}",
-            "className":"brace"
+            "className":"string"
         },
         {
             "name":"bracket",
             "pattern":"\\[|\\]",
-            "className":"bracket"
+            "className":"string"
         }
     ]
 }

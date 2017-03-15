@@ -30,6 +30,11 @@
             "name":"bracket",
             "pattern":"\\[|\\]",
             "className":"bracket"
+        },
+        {
+            "name":"semicolon",
+            "pattern":"\\[|\\]",
+            "className":"semicolon"
         }
     ]
 }
