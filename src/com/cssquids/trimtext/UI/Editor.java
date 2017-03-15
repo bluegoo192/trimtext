@@ -39,7 +39,9 @@ public class Editor extends CodeArea implements Content {
     }
 
     public synchronized void setText(String text) {
-        this.deleteText(0, this.getLength()-1);
+        this.deleteText(0, this.getLength());
+        //System.out.println("Blank text" + this.getText());
+        //System.out.println("Appending "+text.substring(0, 5));
         this.appendText(text);
         this.positionCaret(0);
     }

@@ -87,7 +87,10 @@ public class MenuBuilder {
             }
         });
         MenuItem viewMenu_WRAP = new MenuItem("Toggle text wrapping");
-        viewMenu_WRAP.setOnAction(t->{ State.x.getCurrentEditor().setWrapText(!State.x.getCurrentEditor().isWrapText());});
+        viewMenu_WRAP.setOnAction(t->{
+            State.x.getCurrentEditor().setWrapText(!State.x.getCurrentEditor().isWrapText());
+            System.out.println("wrap: " + State.x.getCurrentEditor().isWrapText());
+        });
         viewMenu_FONT.setOnAction(t->State.x.getCurrentEditor().editFont());
         viewMenu.getItems().addAll(viewMenu_WEB,viewMenu_COLOR,viewMenu_FONT, viewMenu_WRAP);
 
