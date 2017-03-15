@@ -74,7 +74,7 @@ public class WebBrowser implements Content {
         HBox.setHgrow(locationField, Priority.ALWAYS);
 
         VBox vBox = new VBox(5);
-        vBox.getChildren().setAll(hBox, webView);
+        vBox.getChildren().setAll(webView);
         VBox.setVgrow(webView, Priority.ALWAYS);
 
         root.getChildren().add(vBox);

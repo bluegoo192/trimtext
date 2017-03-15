@@ -33,8 +33,14 @@
         },
         {
             "name":"semicolon",
-            "pattern":"\\[|\\]",
+            "pattern":"\\;",
             "className":"semicolon"
+        },
+        {
+            "name":"string",
+            "pattern":"\"([^\"\\\\]|\\\\.)*\"",
+            "className":"string"
         }
+
     ]
 }
