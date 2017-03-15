@@ -28,7 +28,6 @@ public class MainScene extends Scene {
         //System.out.println(location.getFile());
         this.getStylesheets().add("com/cssquids/trimtext/style.css");
         State.x.tabs.getTabPane().getStyleClass().add("tabpane");
-        System.out.println(State.x.tabs.getTabPane().getStyleClass());
 
     }
 

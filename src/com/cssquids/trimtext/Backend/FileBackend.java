@@ -39,7 +39,6 @@ public class FileBackend {
 
             try (FileInputStream fis = new FileInputStream(f);
                  BufferedInputStream bis = new BufferedInputStream(fis) ) {
-                System.out.println("made it this far...");
                 while ( (bis.available() > 0) && (iterations < charThreshold)) {
                     iterations++;
                     buffer.append((char)bis.read());

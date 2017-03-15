@@ -44,7 +44,6 @@ class Store {
     fun setCurrentEditor(ed: Editor?) {
         State.x.tabs.getSelectModel()?.select(ed?.parentTab)
         currentEditor = ed
-        System.out.println("set current editor to " + ed?.parentTab?.text)
     }
 
     fun getCurrentEditor(): Editor? {

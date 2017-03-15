@@ -22,8 +22,11 @@ public class Language {
     private final String[] classes;
     private final Pattern langRegex;
 
-    public Language(String[] keywords, String[] otherPatterns, String[] classes) {
+    private final String name;
+
+    public Language(String name, String[] keywords, String[] otherPatterns, String[] classes) {
         this.keywords = keywords;
+        this.name = name;
         this.classes = classes;
         String keywordPattern = "\\b(" + String.join("|", keywords) + ")\\b";
         StringBuilder sb = new StringBuilder();

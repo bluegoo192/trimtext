@@ -60,7 +60,8 @@ public class VFile {
     public VFile() {
         backend = new FileBackend(this);
         LanguageBuilder b = new LanguageBuilder();
-        myLang = b.buildJava();
+        //myLang = b.buildJava();
+        myLang = b.build("java");//start off with Java parsing by default
     }
 
     public VFile(Editor editor) {
@@ -113,6 +114,9 @@ public class VFile {
 
             backend.loadFile(file);
 
+            LanguageBuilder lb = new LanguageBuilder();
+            String[] splitname = file.getName().split("\\.");
+            myLang = lb.build(lb.determineLangFromExtension(splitname[splitname.length-1]));
 
             this.usesFile = true;
             return this;

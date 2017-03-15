@@ -1,5 +1,5 @@
 {
-    "name":"Java",
+    "name":"java",
     "keywords": {
         "className":"purple",
         "words": [
@@ -16,17 +16,17 @@
         ]
     },
     "other": [
-        "parentheses": {
+        {
             "name":"paren",
             "pattern":"\\(|\\)",
             "className":"paren"
         },
-        "braces": {
+        {
             "name":"brace",
             "pattern":"\\{|\\}",
             "className":"brace"
         },
-        "brackets": {
+        {
             "name":"bracket",
             "pattern":"\\[|\\]",
             "className":"bracket"
