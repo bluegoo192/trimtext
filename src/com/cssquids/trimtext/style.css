@@ -69,6 +69,11 @@
 }
 .colon {
     -fx-fill: #969696;
+} .caret {
+    -fx-fill: #969696;
+} .tag {
+    -fx-fill: purple;
+    -fx-font-weight: bold;
 }
 
 .paragraph-box:has-caret {
