@@ -14,8 +14,15 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Popup;
 import javafx.stage.PopupWindow;
 import org.fxmisc.richtext.CodeArea;
+import org.fxmisc.undo.UndoManager;
+import org.fxmisc.undo.UndoManagerFactory;
+import org.reactfx.EventStream;
 
 import java.util.ArrayList;
+import java.util.Optional;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 //Inspired by tutorial Editor class, but we added a lot more stuff
 public class Editor extends CodeArea implements Content {
@@ -66,6 +73,7 @@ public class Editor extends CodeArea implements Content {
     public void save() { content.saveFileRev();}
 
     public void handleKeyPress(KeyEvent ke) {
+        this.getUndoManager().mark();
         if (this.getCaretPosition() < lastWordCoord) lastWordCoord = this.getCaretPosition();
         if (ke.getCode() == KeyCode.SPACE || ke.getCode() == KeyCode.ENTER) {
             lastWordCoord = this.getCaretPosition();
