@@ -26,7 +26,7 @@ public class MainScene extends Scene {
         System.out.println(this.getStylesheets());
         //URL location = MainScene.class.getProtectionDomain().getCodeSource().getLocation();
         //System.out.println(location.getFile());
-        this.getStylesheets().add("com/cssquids/trimtext/style.css");
+        this.getStylesheets().add("style.css");
         State.x.tabs.getTabPane().getStyleClass().add("tabpane");
 
     }
