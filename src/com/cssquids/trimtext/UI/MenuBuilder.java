@@ -76,7 +76,6 @@ public class MenuBuilder {
                 browser.make();
             }
         });
-        MenuItem viewMenu_COLOR = new MenuItem("Color");
         MenuItem viewMenu_FONT = new MenuItem("Font");
         MenuItem viewMenu_SETTINGS = new MenuItem("Settings");
         viewMenu_SETTINGS.setOnAction(new EventHandler<ActionEvent>() {
@@ -92,7 +91,7 @@ public class MenuBuilder {
             System.out.println("wrap: " + State.x.getCurrentEditor().isWrapText());
         });
         viewMenu_FONT.setOnAction(t->State.x.getCurrentEditor().editFont());
-        viewMenu.getItems().addAll(viewMenu_WEB,viewMenu_COLOR,viewMenu_FONT, viewMenu_WRAP);
+        viewMenu.getItems().addAll(viewMenu_WEB,viewMenu_FONT, viewMenu_WRAP);
 
 
     }
