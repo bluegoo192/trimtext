@@ -66,6 +66,7 @@ public class Editor extends CodeArea implements Content {
     public void save() { content.saveFileRev();}
 
     public void handleKeyPress(KeyEvent ke) {
+        if (this.getCaretPosition() < lastWordCoord) lastWordCoord = this.getCaretPosition();
         if (ke.getCode() == KeyCode.SPACE || ke.getCode() == KeyCode.ENTER) {
             lastWordCoord = this.getCaretPosition();
             popup.hide();
@@ -75,7 +76,7 @@ public class Editor extends CodeArea implements Content {
             this.appendText(suggestion.getText());
         } else {
             suggestion.setText(content.getSuggestions(lastWordCoord, this.getCaretPosition()));
-            if (suggestion.getText() != null) popup.show(State.x.getApp().getStage());
+            if (suggestion.getText() != null && suggestion.getText().length() != 0) popup.show(State.x.getApp().getStage());
         }
 
     };

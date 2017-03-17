@@ -50,7 +50,7 @@ public class Language {
     }
 
     public String getBestSuggestion(String typed) {
-        System.out.println("matching: "+typed+" Length: "+typed.length());
+        //System.out.println("matching: "+typed+" Length: "+typed.length());
         if (typed == null || typed.length() == 0) return null;
         for (String keyword : keywords) {
             if (keyword.startsWith(typed)) return keyword;
