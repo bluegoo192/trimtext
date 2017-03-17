@@ -76,6 +76,8 @@ public class Editor extends CodeArea implements Content {
                 popup.hide();
                 this.appendText(suggestion.getText());
             }
+            suggestion.setText(null);
+            lastWordCoord = this.getCaretPosition();
         } else {
             suggestion.setText(content.getSuggestions(lastWordCoord, this.getCaretPosition()));
             if (suggestion.getText() != null && suggestion.getText().length() != 0) popup.show(State.x.getApp().getStage());
