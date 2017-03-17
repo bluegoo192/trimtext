@@ -71,9 +71,11 @@ public class Editor extends CodeArea implements Content {
             lastWordCoord = this.getCaretPosition();
             popup.hide();
         } else if (ke.getCode() == KeyCode.TAB) {
-            this.deleteText(lastWordCoord, this.getCaretPosition());
-            popup.hide();
-            this.appendText(suggestion.getText());
+            if (suggestion.getText() != null && suggestion.getText().length() != 0) {
+                this.deleteText(lastWordCoord, this.getCaretPosition());
+                popup.hide();
+                this.appendText(suggestion.getText());
+            }
         } else {
             suggestion.setText(content.getSuggestions(lastWordCoord, this.getCaretPosition()));
             if (suggestion.getText() != null && suggestion.getText().length() != 0) popup.show(State.x.getApp().getStage());
