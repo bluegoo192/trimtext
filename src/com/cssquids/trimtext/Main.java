@@ -50,12 +50,17 @@ public class Main extends Application {
         //Code up to ~~~~~ written by Eric Bruno
         // Add an empty editor to the tab pane
         State.x.tabs.setTabPane(new TabPane());
+        //State.x.tabs.getTabPane()
         State.x.tabs.getTabPane().getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tab>() {
             @Override public void changed(ObservableValue<? extends Tab> tab, Tab oldTab, Tab newTab) {
                 // As the current tab changes, reset the var that tracks
                 // the editor in view. This is used for tracking modified
                 // editors as the user types
-                State.x.setCurrentEditor(null);
+                try {
+                    State.x.setCurrentEditor((Editor) State.x.tabs.getCurrentTab().getContent());
+                } catch (ClassCastException e) {
+                    State.x.setCurrentEditor(null);
+                }
             }
         });
         //~~~~~
