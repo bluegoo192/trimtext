@@ -77,6 +77,9 @@
 } .param {
     -fx-fill: green;
     -fx-font-style: italic;
+} .suggestion {
+    -fx-padding: 3;
+    -fx-background-color: #8AC8FF;
 }
 
 .paragraph-box:has-caret {

@@ -46,6 +46,7 @@ public class Editor extends CodeArea implements Content {
         content = v;
         parentTab = t;
         popup = new Popup();
+        suggestion.getStyleClass().add("suggestion");
         popup.getContent().add(suggestion);
         this.setPopupWindow(popup);
     }
@@ -68,9 +69,13 @@ public class Editor extends CodeArea implements Content {
         if (ke.getCode() == KeyCode.SPACE || ke.getCode() == KeyCode.ENTER) {
             lastWordCoord = this.getCaretPosition();
             popup.hide();
+        } else if (ke.getCode() == KeyCode.TAB) {
+            this.deleteText(lastWordCoord, this.getCaretPosition());
+            popup.hide();
+            this.appendText(suggestion.getText());
         } else {
             suggestion.setText(content.getSuggestions(lastWordCoord, this.getCaretPosition()));
-            popup.show(State.x.getApp().getStage());
+            if (suggestion.getText() != null) popup.show(State.x.getApp().getStage());
         }
 
     };

@@ -93,6 +93,8 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setTitle("Simple Editor / Browser");
         stage.show();
+        State.x.setCurrentEditor((Editor) State.x.tabs.getCurrentTab().getContent());
+        State.x.getCurrentEditor().requestFocus();
         //~~~~~
     }
 
