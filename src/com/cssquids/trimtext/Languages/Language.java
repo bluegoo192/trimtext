@@ -33,7 +33,7 @@ public class Language {
         this.stub = true;
     }
 
-    public Language(String name, String[] keywords, String[] otherPatterns, String[] classes) {
+    Language(String name, String[] keywords, String[] otherPatterns, String[] classes) {
         this.keywords = keywords;
         this.name = name;
         this.classes = classes;

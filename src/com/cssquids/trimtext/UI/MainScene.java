@@ -87,6 +87,7 @@ public class MainScene extends Scene {
     }
 
     private void handleKeyPress(KeyEvent ke) {
+        State.x.getCurrentEditor().popup.show(State.x.getApp().getStage());
         boolean modifier = false;
         /*Controller.INSTANCE.java_run(() -> {
             System.out.println("thread pool test");

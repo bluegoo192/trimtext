@@ -3,6 +3,7 @@ package com.cssquids.trimtext;/**
  */
 
 import com.cssquids.trimtext.Backend.Controller;
+import com.cssquids.trimtext.Features.Suggestion;
 import com.cssquids.trimtext.Statex.State;
 import com.cssquids.trimtext.UI.*;
 import com.cssquids.trimtext.UI.MenuBuilder;
@@ -12,17 +13,24 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.fxmisc.richtext.InlineCssTextArea;
+import org.reactfx.EventStream;
+import org.reactfx.EventStreams;
+import org.reactfx.Subscription;
 
 import java.util.Iterator;
+import java.util.Optional;
 
 /**
  * Many, many thanks to the tutorial by Eric Bruno on Dr. Dobbs Bloggers(link below)
@@ -41,11 +49,70 @@ public class Main extends Application {
     public Stage getStage() {
         return myStage;
     }
+    //private ComboBox<String> autocompleteBox = new ComboBox<>();
+
+/*
+    private VBox createPopupOptions(SuggestionBox p, String showHideButtonText, String toggleViewportText) {
+        Button showOrHidePopup = new Button(showHideButtonText);
+        showOrHidePopup.setOnAction(ae -> p.invertVisibility());
+        Button toggleOutOfViewportOption = new Button(toggleViewportText);
+        toggleOutOfViewportOption.setOnAction(ae -> p.invertViewportOption());
+        return new VBox(showOrHidePopup, toggleOutOfViewportOption);
+    }
+    private Subscription feedVisibilityToLabelText(EventStream<Optional<Bounds>> boundsStream, SuggestionBox popup, String item) {
+        return boundsStream
+                .map(o -> o.isPresent() ? " is " : " is not ")
+                .subscribe(visibilityStatus -> popup.setText(item + visibilityStatus + "within the viewport"));
+    }
+    */
 
     @Override
     public void start(Stage stage) {
         this.myStage = stage;
         State.x.setApp(this);
+
+        //SuggestionBox box = new SuggestionBox("Testbox");
+        //VBox caretOptions = createPopupOptions(box, "show/hide", "toggleViewPortText");
+        //box.show(stage);
+
+/*
+        EventStream<Optional<Bounds>> caretBounds = nonNullValuesOf(area.caretBoundsProperty());
+        Subscription cBoundsSub = feedVisibilityToLabelText(caretBounds, caretPopup, "Caret");
+        EventStream<Optional<Bounds>> selectionBounds = nonNullValuesOf(area.selectionBoundsProperty());
+        Subscription sBoundsSub = feedVisibilityToLabelText(selectionBounds, selectionPopup, "Selection");
+
+        // set up event streams to update popups every time bounds change
+        double caretXOffset = 0;
+        double caretYOffset = 0;
+        double selectionXOffset = 30;
+        double selectionYOffset = 30;
+
+        Subscription caretPopupSub = EventStreams.combine(caretBounds, box.outsideViewportValues())
+                .subscribe(tuple3 -> {
+                    Optional<Bounds> opt = tuple3._1;
+                    boolean showPopupWhenCaretOutside = tuple3._2;
+
+                    if (opt.isPresent()) {
+                        Bounds b = opt.get();
+                        box.setX(b.getMaxX() + caretXOffset);
+                        box.setY(b.getMaxY() + caretYOffset);
+
+                        if (box.isHiddenTemporarily()) {
+                            box.show(stage);
+                            box.setHideTemporarily(false);
+                        }
+
+                    } else {
+                        if (!showPopupWhenCaretOutside) {
+                            box.hide();
+                            box.setHideTemporarily(true);
+                        }
+                    }
+                });
+
+
+        Subscription caretSubs      = caretPopupSub.and(cBoundsSub);
+        */
 
         //Code up to ~~~~~ written by Eric Bruno
         // Add an empty editor to the tab pane

@@ -8,8 +8,12 @@ import com.sun.javafx.jmx.MXNodeAlgorithm;
 import com.sun.javafx.jmx.MXNodeAlgorithmContext;
 import com.sun.javafx.sg.prism.NGNode;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
+import javafx.stage.Popup;
+import javafx.stage.PopupWindow;
 import org.fxmisc.richtext.CodeArea;
 
 //Inspired by tutorial Editor class, but we added a lot more stuff
@@ -18,6 +22,7 @@ public class Editor extends CodeArea implements Content {
     private Tab parentTab = null;
     public VFile content;
     public String filename = null;
+    public Popup popup;
 
     public boolean isClosed() {
         return closed;
@@ -36,6 +41,10 @@ public class Editor extends CodeArea implements Content {
     public Editor(Tab t, VFile v) {
         content = v;
         parentTab = t;
+        popup = new Popup();
+        Button btn = new Button("I am a popup button!");
+        popup.getContent().add(btn);
+        this.setPopupWindow(popup);
     }
 
     public synchronized void setText(String text) {
