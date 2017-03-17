@@ -2,9 +2,21 @@ TrimText
 A fast, extensible text editor for programmers on all platforms
 
 1. Instructions on building and running TrimText.
-   We suggest downloading IntelliJ (https://www.jetbrains.com/idea/download/) and install to desired location. Download GitHub repo from this github(https://github.com/bluegoo192/trimtext.git) and open it with IntelliJ. Once the file is open in IntelliJ go to "File" and then "Project Structure". Once in Project Structure make sure the Project SDK has a valid module (we used 1.8 but anything should work) and for Project Langauge level set it to "8 - Lambdas, type annotations etc". Once these settings are in place hit "Build" and "Build Project" and then "Run" and "Run 'Main'" to run the project. This should bring it up.
-    Required Libraries: JavaFX, Kotlin, javac2
-    Required Operating System: N/A
+- Download project from https://github.com/bluegoo192/trimtext
+- Open IntelliJ and select "Import Project"
+- Navigate to and select the trimtext project folder, click OK
+- Create project from existing sources, click Next
+- Accept the default name, click Next, click Yes if IntelliJ asks to overwrite the .idea file.
+- Accept source files from \src directory, select Next
+- The next screen will show that all libraries necessary are provided in our project folder, select Next
+- Accept the suggested module structure, select Next
+- On this next screen you should select the path to the latest version of your JDK (we chose 1.8 for reference, but any recent version should work), then select Next
+- Select Finish and IntelliJ should open the project
+- Select File > Project Structure and make sure the Project SDK has a valid module (we used 1.8 but any recent JDK version should work), and for Project Language Level, set it to "8 - Lambdas, type annotations etc" then select OK
+- Select Build > Build Project, should take at most a minute
+- Once IntelliJ is finished building the project, navigate to trimtext-master/src/com/cssquids/trimtext/Main.java on either the directory bar at the top or from the project view on the left
+- Select Run > Run, if IntelliJ asks which configuration to use, select Main
+- Congratulations, TrimText should be open and running. Enjoy!
 
 2. No external data files are required for this project. TrimText can open (as far as we know) any file type out there. Just navigate to whatever file you wish to open and it will open it. Files to be opened do not need to be placed in the same location as the TrimText source code or runnable.
 
