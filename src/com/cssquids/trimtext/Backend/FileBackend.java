@@ -29,6 +29,8 @@ public class FileBackend {
     private Vector<String> fullContent = new Vector<>();//stores the FULL content of the file(or at least abstracts getting it)
     final private int charThreshold = FileSettings.getInstance().getFileBlockSize();
     private int currentBlock;
+    private Priority myPriority = Priority.HIGH;
+    private EstimatedLoad myEstimatedLoad = EstimatedLoad.UNKNOWN;
 
     public FileBackend(VFile t) { mine = t; }
 
@@ -48,7 +50,7 @@ public class FileBackend {
                 fullContent.add(buffer.toString());
                 loadBlock(0);
                 //System.out.println("Finished first set at "+ iterations + " iterations");
-
+                myEstimatedLoad = EstimatedLoad.MEDIUM;
                 while (bis.available() > 0) {
                     iterations = 0;
                     buffer = new StringBuffer();
