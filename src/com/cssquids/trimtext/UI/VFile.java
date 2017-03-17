@@ -125,7 +125,7 @@ public class VFile {
     }
 
     public String getSuggestions(int start, int end) {
-        return myLang.getBestSuggestion(parentEditor.getText(start, end));
+        return myLang.getBestSuggestion(parentEditor.getText(start, end)).getText();
     }
 
     //Code up to ~~~~~ written by Eric Bruno

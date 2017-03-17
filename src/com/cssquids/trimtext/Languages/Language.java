@@ -1,5 +1,7 @@
 package com.cssquids.trimtext.Languages;
 
+import com.cssquids.trimtext.Features.Suggestion;
+import com.cssquids.trimtext.Features.SyntaxProcessor;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import org.fxmisc.richtext.StyleSpans;
@@ -21,6 +23,7 @@ public class Language {
     private final String[] keywords;
     private final String[] classes;
     private final Pattern langRegex;
+    private SyntaxProcessor syntaxProcessor;
 
     private final String name;
     private boolean stub = false;
@@ -34,6 +37,7 @@ public class Language {
     }
 
     Language(String name, String[] keywords, String[] otherPatterns, String[] classes) {
+
         this.keywords = keywords;
         this.name = name;
         this.classes = classes;
@@ -49,11 +53,11 @@ public class Language {
         langRegex = Pattern.compile(sb.toString());
     }
 
-    public String getBestSuggestion(String typed) {
+    public Suggestion getBestSuggestion(String typed) {
         //System.out.println("matching: "+typed+" Length: "+typed.length());
         if (typed == null || typed.length() == 0) return null;
         for (String keyword : keywords) {
-            if (keyword.startsWith(typed)) return keyword;
+            if (keyword.startsWith(typed)) return new Suggestion(keyword);
         }
         return null;
     }
