@@ -2,6 +2,13 @@ TrimText
 A fast, extensible text editor for programmers on all platforms
 
 1. Instructions on building and running TrimText.
+To open from command line:
+- Have a JDK 1.8 or higher, configured properly.
+- Have ant properly running.
+- Have path variables set properly.
+- In base directory, type "ant run" to compile and run, and "ant compile" to compile, and "ant clean" to delete .class files.
+- Do NOT delete the directory "out," it has an important css file.
+Alternate Instructions:
 - Download project from https://github.com/bluegoo192/trimtext
 - Open IntelliJ and select "Import Project"
 - Navigate to and select the trimtext project folder, click OK
