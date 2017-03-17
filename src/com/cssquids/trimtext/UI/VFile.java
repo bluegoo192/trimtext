@@ -101,7 +101,7 @@ public class VFile {
 
         tab.setContent(parentEditor.getRoot());
         State.x.tabs.add(tab);
-        State.x.setCurrentEditor(parentEditor);
+        State.x.setCurrentEditor(parentEditor);;
     }
 
     public VFile load() {

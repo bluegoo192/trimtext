@@ -1,5 +1,7 @@
 package com.cssquids.trimtext.Backend;
 
+import com.cssquids.trimtext.Configurables.FileSettings;
+import com.cssquids.trimtext.Configurables.LabelsContainer;
 import com.cssquids.trimtext.Features.SyntaxProcessor;
 import com.cssquids.trimtext.UI.VFile;
 import javafx.application.Platform;
@@ -25,7 +27,7 @@ public class FileBackend {
 
     private VFile mine;
     private Vector<String> fullContent = new Vector<>();//stores the FULL content of the file(or at least abstracts getting it)
-    final private int charThreshold = 50000;
+    final private int charThreshold = FileSettings.getInstance().getFileBlockSize();
     private int currentBlock;
 
     public FileBackend(VFile t) { mine = t; }

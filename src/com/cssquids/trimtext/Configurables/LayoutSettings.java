@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 
 //Like many classes in this package, LayoutSettings is a singleton containing settings for layout, like spacing & stuff
 //For now, these are hardcoded in.  In the future, we'll want these variables to be loaded from a file
-public class LayoutSettings extends FileSettings implements AutoUpdate {
+public class LayoutSettings implements AutoUpdate {
 
     private double VBoxSpacing = 0;
     private int initialSceneWidth = 800;
