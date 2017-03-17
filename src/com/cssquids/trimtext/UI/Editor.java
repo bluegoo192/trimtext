@@ -8,13 +8,14 @@ import com.sun.javafx.jmx.MXNodeAlgorithm;
 import com.sun.javafx.jmx.MXNodeAlgorithmContext;
 import com.sun.javafx.sg.prism.NGNode;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Popup;
 import javafx.stage.PopupWindow;
 import org.fxmisc.richtext.CodeArea;
+
+import java.util.ArrayList;
 
 //Inspired by tutorial Editor class, but we added a lot more stuff
 public class Editor extends CodeArea implements Content {
@@ -23,6 +24,9 @@ public class Editor extends CodeArea implements Content {
     public VFile content;
     public String filename = null;
     public Popup popup;
+    Label suggestion = new Label();
+
+    private int lastWordCoord = 0;
 
     public boolean isClosed() {
         return closed;
@@ -42,8 +46,7 @@ public class Editor extends CodeArea implements Content {
         content = v;
         parentTab = t;
         popup = new Popup();
-        Button btn = new Button("I am a popup button!");
-        popup.getContent().add(btn);
+        popup.getContent().add(suggestion);
         this.setPopupWindow(popup);
     }
 
@@ -60,6 +63,17 @@ public class Editor extends CodeArea implements Content {
     }
 
     public void save() { content.saveFileRev();}
+
+    public void handleKeyPress(KeyEvent ke) {
+        if (ke.getCode() == KeyCode.SPACE || ke.getCode() == KeyCode.ENTER) {
+            lastWordCoord = this.getCaretPosition();
+            popup.hide();
+        } else {
+            suggestion.setText(content.getSuggestions(lastWordCoord, this.getCaretPosition()));
+            popup.show(State.x.getApp().getStage());
+        }
+
+    };
 
     public Tab getParentTab() { return parentTab; }
 

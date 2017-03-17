@@ -49,6 +49,10 @@ public class Language {
         langRegex = Pattern.compile(sb.toString());
     }
 
+    public String getBestSuggestion(String typed) {
+        return typed;
+    }
+
     public StyleSpans<Collection<String>> process(String text) {
         if (stub) return null;
         Matcher matcher = langRegex.matcher(text);

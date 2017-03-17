@@ -87,7 +87,6 @@ public class MainScene extends Scene {
     }
 
     private void handleKeyPress(KeyEvent ke) {
-        State.x.getCurrentEditor().popup.show(State.x.getApp().getStage());
         boolean modifier = false;
         /*Controller.INSTANCE.java_run(() -> {
             System.out.println("thread pool test");
@@ -104,6 +103,7 @@ public class MainScene extends Scene {
             State.x.setIgnoreNextPress(true);
         }
         else if ( ! State.x.getIgnoreNextPress() ) {
+            State.x.getCurrentEditor().handleKeyPress(ke);
             if ( code == KeyCode.BACK_SPACE ||
                     code == KeyCode.ENTER ||
                     code == KeyCode.DELETE ) {
@@ -111,6 +111,7 @@ public class MainScene extends Scene {
             }
             else if ( text != null && text.length() > 0 ) {
                 if ( ! modifier ) {
+
                     State.x.getApp().indicateFileModified();
                 }
             }

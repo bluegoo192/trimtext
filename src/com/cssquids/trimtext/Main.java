@@ -49,75 +49,15 @@ public class Main extends Application {
     public Stage getStage() {
         return myStage;
     }
-    //private ComboBox<String> autocompleteBox = new ComboBox<>();
-
-/*
-    private VBox createPopupOptions(SuggestionBox p, String showHideButtonText, String toggleViewportText) {
-        Button showOrHidePopup = new Button(showHideButtonText);
-        showOrHidePopup.setOnAction(ae -> p.invertVisibility());
-        Button toggleOutOfViewportOption = new Button(toggleViewportText);
-        toggleOutOfViewportOption.setOnAction(ae -> p.invertViewportOption());
-        return new VBox(showOrHidePopup, toggleOutOfViewportOption);
-    }
-    private Subscription feedVisibilityToLabelText(EventStream<Optional<Bounds>> boundsStream, SuggestionBox popup, String item) {
-        return boundsStream
-                .map(o -> o.isPresent() ? " is " : " is not ")
-                .subscribe(visibilityStatus -> popup.setText(item + visibilityStatus + "within the viewport"));
-    }
-    */
 
     @Override
     public void start(Stage stage) {
         this.myStage = stage;
         State.x.setApp(this);
 
-        //SuggestionBox box = new SuggestionBox("Testbox");
-        //VBox caretOptions = createPopupOptions(box, "show/hide", "toggleViewPortText");
-        //box.show(stage);
-
-/*
-        EventStream<Optional<Bounds>> caretBounds = nonNullValuesOf(area.caretBoundsProperty());
-        Subscription cBoundsSub = feedVisibilityToLabelText(caretBounds, caretPopup, "Caret");
-        EventStream<Optional<Bounds>> selectionBounds = nonNullValuesOf(area.selectionBoundsProperty());
-        Subscription sBoundsSub = feedVisibilityToLabelText(selectionBounds, selectionPopup, "Selection");
-
-        // set up event streams to update popups every time bounds change
-        double caretXOffset = 0;
-        double caretYOffset = 0;
-        double selectionXOffset = 30;
-        double selectionYOffset = 30;
-
-        Subscription caretPopupSub = EventStreams.combine(caretBounds, box.outsideViewportValues())
-                .subscribe(tuple3 -> {
-                    Optional<Bounds> opt = tuple3._1;
-                    boolean showPopupWhenCaretOutside = tuple3._2;
-
-                    if (opt.isPresent()) {
-                        Bounds b = opt.get();
-                        box.setX(b.getMaxX() + caretXOffset);
-                        box.setY(b.getMaxY() + caretYOffset);
-
-                        if (box.isHiddenTemporarily()) {
-                            box.show(stage);
-                            box.setHideTemporarily(false);
-                        }
-
-                    } else {
-                        if (!showPopupWhenCaretOutside) {
-                            box.hide();
-                            box.setHideTemporarily(true);
-                        }
-                    }
-                });
-
-
-        Subscription caretSubs      = caretPopupSub.and(cBoundsSub);
-        */
-
         //Code up to ~~~~~ written by Eric Bruno
         // Add an empty editor to the tab pane
         State.x.tabs.setTabPane(new TabPane());
-        //State.x.tabs.getTabPane()
         State.x.tabs.getTabPane().getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tab>() {
             @Override public void changed(ObservableValue<? extends Tab> tab, Tab oldTab, Tab newTab) {
                 // As the current tab changes, reset the var that tracks
